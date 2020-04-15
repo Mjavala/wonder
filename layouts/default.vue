@@ -1,10 +1,10 @@
 <template>
   <div>
-    <top-header/>
+    <top-header />
     <main id="main" role="main">
-      <nuxt/>
+      <nuxt />
     </main>
-    <bottom-footer/>
+    <bottom-footer />
   </div>
 </template>
 
@@ -19,3 +19,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  #main{
+    background-color: #FF0000;
+    height: 90vh;
+  }
+
+</style>
