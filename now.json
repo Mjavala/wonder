@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "storyblok-nuxtjs",
+    "builds": [
+      {
+        "src": "nuxt.config.js",
+        "use": "@nuxtjs/now-builder",
+        "config": {}
+      }
+    ],
+    "scope": "mjavala",
+    "regions": ["bru1"],
+    "public": false
+  }
