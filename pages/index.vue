@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 export default {
   asyncData (context) {
     // Load the JSON from the API

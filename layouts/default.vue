@@ -25,5 +25,4 @@ export default {
     background-color: #FF0000;
     height: 90vh;
   }
-
 </style>
