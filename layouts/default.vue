@@ -1,28 +1,26 @@
 <template>
   <div>
-    <top-header />
+    <Wonder />
     <main id="main" role="main">
       <nuxt />
     </main>
-    <bottom-footer />
   </div>
 </template>
 
 <script>
-import TopHeader from '~/components/TopHeader.vue'
-import BottomFooter from '~/components/BottomFooter.vue'
 
 export default {
   components: {
-    TopHeader,
-    BottomFooter
+    Wonder: () => import('~/components/wonder.vue')
   }
 }
 </script>
 
-<style scoped>
+<style>
+  body{
+    margin: 0;
+  }
   #main{
-    background-color: #FF0000;
-    height: 90vh;
+    height: 100vh;
   }
 </style>

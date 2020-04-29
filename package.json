@@ -13,12 +13,11 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^3.0.0-0",
     "express": "^4.16.4",
+    "lottie-web": "^5.6.8",
     "nuxt": "^2.0.0",
     "storyblok-nuxt": "^1.2.0",
-    "@nuxtjs/vuetify": "^1.0.0"
-    
+    "vue-vimeo-player": "^0.1.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

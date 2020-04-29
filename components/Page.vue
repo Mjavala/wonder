@@ -9,9 +9,3 @@ export default {
   props: ['blok']
 }
 </script>
-
-<style scoped>
-  body {
-    height: 100vh;
-  }
-</style>
