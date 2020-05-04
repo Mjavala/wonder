@@ -1,6 +1,6 @@
 <template>
   <div v-editable="blok" class="vimeo">
-    <div id="video-wrap">
+    <div v-if="scrolled" id="video-wrap">
       <div
         id="play"
         class="title"
@@ -32,8 +32,14 @@ export default {
       videoID: this.blok.video,
       control: true,
       playerReady: false,
-      playing: false
+      playing: false,
+      scrolled: false
     }
+  },
+  beforeMount () {
+    // https://stackoverflow.com/questions/47327119/how-to-listen-to-scroll-events-in-vue-nuxtjs
+    window.addEventListener('wheel', this.showVids)
+    console.log()
   },
   methods: {
     onReady () {
@@ -46,6 +52,9 @@ export default {
     pause () {
       this.$refs.player.pause()
       this.playing = false
+    },
+    showVids () {
+      this.scrolled = true
     }
   }
 }
@@ -72,9 +81,5 @@ export default {
   #play{
     cursor: pointer;
     display: block;
-  }
-
-  .vp-controls{
-    visibility: hidden !important;
   }
 </style>

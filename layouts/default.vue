@@ -1,17 +1,16 @@
 <template>
   <div>
-    <Wonder />
-    <main id="main" role="main">
-      <nuxt />
-    </main>
+    <wonder />
+    <nuxt />
   </div>
 </template>
 
 <script>
+import wonder from '~/components/wonder'
 
 export default {
   components: {
-    Wonder: () => import('~/components/wonder.vue')
+    wonder
   }
 }
 </script>
@@ -19,8 +18,5 @@ export default {
 <style>
   body{
     margin: 0;
-  }
-  #main{
-    height: 100vh;
   }
 </style>

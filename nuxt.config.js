@@ -15,12 +15,10 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: '~/components/loader.vue',
   /*
   ** Global CSS
   */
-  css: [
-  ],
   /*
   ** Plugins to load before mounting the App
   */
@@ -63,9 +61,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
     extend (config, ctx) {
     }
   }
