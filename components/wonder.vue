@@ -19,21 +19,21 @@
     </nav>
     <div v-if="showSideMenu" id="side-nav">
       <div class="side-nav-item-wrap">
-        <div class="side-nav-item">
+        <div class="side-nav-item" @click="blackNavStyling">
           Film
         </div>
       </div>
-      <div class="side-nav-item-wrap">
+      <div class="side-nav-item-wrap" @click="blackNavStyling">
         <div class="side-nav-item">
           Photo
         </div>
       </div>
-      <div class="side-nav-item-wrap">
+      <div class="side-nav-item-wrap" @click="blackNavStyling">
         <div class="side-nav-item">
           About
         </div>
       </div>
-      <div class="side-nav-item-wrap">
+      <div class="side-nav-item-wrap" @click="blackNavStyling">
         <div class="side-nav-item">
           Contact
         </div>
@@ -63,6 +63,11 @@ export default {
     })
   },
   methods: {
+    blackNavStyling (event) {
+      console.log(event.target)
+      event.target.classList.add('whiteText')
+      event.target.parentElement.classList.add('blackBackground')
+    }
   }
 }
 </script>
@@ -128,6 +133,7 @@ export default {
     text-align: left;
     font-size: 2em;
     width: 60%;
+    cursor: pointer;
   }
   #exit-side-menu{
     position: absolute;
@@ -136,5 +142,11 @@ export default {
     padding: 1em;
     color: #FF0000;
     cursor: pointer;
+  }
+  .whiteText{
+    color: white;
+  }
+  .blackBackground{
+    background-color: black;
   }
 </style>
