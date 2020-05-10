@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <nav id="nav">
+    <nav v-if="loaded" id="nav">
       <svg xmlns="http://www.w3.org/2000/svg" class="hamburger" viewBox="0 0 36.167 24.922" preserveAspectRatio="xMidYMid meet" @click="showSideMenu = true"><g transform="translate(-6377.605 -701)"><rect width="36.167" height="5.167" transform="translate(6377.605 701)" fill="#fff" /><rect width="36.167" height="5.167" transform="translate(6377.605 710.877)" fill="#fff" /><rect width="36.167" height="5.167" transform="translate(6377.605 720.755)" fill="#fff" /></g></svg>
       <div id="nav-wrapper">
         <div class="nav-item">
@@ -17,40 +17,23 @@
         </div>
       </div>
     </nav>
-    <div v-if="showSideMenu" id="side-nav">
-      <div class="side-nav-item-wrap">
-        <div class="side-nav-item" @click="blackNavStyling">
-          Film
-        </div>
-      </div>
-      <div class="side-nav-item-wrap" @click="blackNavStyling">
-        <div class="side-nav-item">
-          Photo
-        </div>
-      </div>
-      <div class="side-nav-item-wrap" @click="blackNavStyling">
-        <div class="side-nav-item">
-          About
-        </div>
-      </div>
-      <div class="side-nav-item-wrap" @click="blackNavStyling">
-        <div class="side-nav-item">
-          Contact
-        </div>
-        <div id="exit-side-menu" @click="showSideMenu = false">
-          X
-        </div>
-      </div>
-    </div>
+    <sideNav v-if="showSideMenu" />
+
+    <!--
     <video autoplay>
       <source src="@/assets/320.mp4" type="video/mp4">
     </video>
+    -->
   </div>
 </template>
 
 <script>
+import sideNav from '~/components/sideNav'
 
 export default {
+  components: {
+    sideNav
+  },
   data () {
     return {
       loaded: false,
@@ -61,24 +44,28 @@ export default {
     window.addEventListener('load', () => {
       this.loaded = true
     })
-  },
-  methods: {
-    blackNavStyling (event) {
-      console.log(event.target)
-      event.target.classList.add('whiteText')
-      event.target.parentElement.classList.add('blackBackground')
-    }
+    window.addEventListener('resize', () => {
+      /* eslint prefer-const: "warn" */
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    })
   }
 }
 </script>
 
-<style>
+<style scoped>
+
+  @font-face {
+  font-family: "Trash Regular";
+  src: url("~static/fonts/trash-regular.ttf");
+  }
+
   #wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5625em;
     height: 100vh !important;
+    height: calc(var(--vh, 1vh) * 100);
     background-color: #FF0000;
     position: relative;
   }
@@ -98,55 +85,13 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%;
+    width: 70%;
     color: white;
     padding: 1.5625em;
-    font-size: 1em;
+    font-size: .9em;
   }
   .nav-item{
     cursor: pointer;
-  }
-  #side-nav{
-    height: 100vh;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-  .side-nav-item-wrap {
-    width: 15em;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  .side-nav-item-wrap:nth-child(1),
-  .side-nav-item-wrap:nth-child(2),
-  .side-nav-item-wrap:nth-child(3) {
-    border-bottom: 1px solid #FF0000;
-  }
-  .side-nav-item{
-    text-align: left;
-    font-size: 2em;
-    width: 60%;
-    cursor: pointer;
-  }
-  #exit-side-menu{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 1em;
-    color: #FF0000;
-    cursor: pointer;
-  }
-  .whiteText{
-    color: white;
-  }
-  .blackBackground{
-    background-color: black;
+    font-family: "Trash Regular";
   }
 </style>
