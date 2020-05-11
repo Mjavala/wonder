@@ -71,12 +71,16 @@ export default {
     scrollToVideos () {
       const elmntToView = document.getElementById('video-wrap')
       elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
+      setTimeout(() => { this.showSideMenu = false }, 2000)
     },
     sideNavDrawer () {
       document.addEventListener('click', (e) => {
         const target = e.target.getAttribute('id')
         if (target === 'wrapper') {
           this.showSideMenu = false
+        }
+        if (target === 'film') {
+          setTimeout(() => { this.scrollToVideos() }, 1000)
         }
       })
     }

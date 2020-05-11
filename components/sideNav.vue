@@ -2,7 +2,7 @@
   <div>
     <div id="side-nav">
       <div class="side-nav-item-wrap">
-        <div class="side-nav-item" @click="blackNavStyling">
+        <div id="film" class="side-nav-item" @click="blackNavStyling">
           Film
         </div>
       </div>
@@ -47,7 +47,7 @@ export default {
         color: white;
     }
     .blackBackground{
-        transition: all 2s ease;
+        transition: all 1s ease;
         background-color: black;
     }
     #side-nav{
@@ -88,13 +88,5 @@ export default {
     color: #FF0000;
     cursor: pointer;
   }
-    @keyframes fadeToBlack{
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-            background-color: black;
-        }
-    }
+
 </style>
