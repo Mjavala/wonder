@@ -26,7 +26,12 @@ export default {
   props: ['blok'],
   data () {
     return {
-      loaded: false
+      loaded: true // need to find a solution that allows for conditional rendering
+    }
+  },
+  watch: {
+    $route: (newVal) => {
+      console.log(newVal)
     }
   },
   mounted () {

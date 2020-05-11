@@ -16,9 +16,9 @@
         <div class="nav-item">
           Photo
         </div>
-        <div class="nav-item">
+        <nuxt-link to="/about" class="nav-item" @click="underlineCurrentPage">
           About
-        </div>
+        </nuxt-link>
         <div class="nav-item">
           Contact
         </div>
@@ -83,6 +83,9 @@ export default {
           setTimeout(() => { this.scrollToVideos() }, 1000)
         }
       })
+    },
+    underlineCurrentPage (event) {
+      event.target.classList.add('whiteUnderLine')
     }
   }
 }
@@ -93,6 +96,10 @@ export default {
   @font-face {
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf");
+  }
+
+  a {
+  color: inherit; /* blue colors for links too */
   }
 
   #wrapper{
@@ -128,5 +135,9 @@ export default {
   .nav-item{
     cursor: pointer;
     font-family: "Trash Regular";
+  }
+
+  .whiteUnderline{
+    border-bottom: 2px solid white;
   }
 </style>
