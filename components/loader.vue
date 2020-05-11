@@ -1,6 +1,6 @@
 <template>
-  <div v-if="loading" id="loader" class="loading-page">
-    <svg class="loader" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <div v-if="loadingLoader" id="Loader" class="loading-page">
+    <svg class="Loader" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
       <circle class="external-circle" cx="60" cy="60" r="50" />
       <circle class="internal-circle" cx="60" cy="60" r="30" />
     </svg>
@@ -10,7 +10,7 @@
 <script>
 export default {
   data: () => ({
-    loading: false
+    loadingLoader: false
   }),
   mounted () {
     this.$nextTick(() => {
@@ -20,17 +20,17 @@ export default {
   },
   methods: {
     start () {
-      this.loading = true
+      this.loadingLoader = true
     },
     finish () {
-      this.loading = false
+      this.loadingLoader = false
     }
   }
 }
 </script>
 
 <style>
-#loader {
+#Loader {
     background-color: #FF0000;
     display: flex;
     justify-content: center;
@@ -38,7 +38,7 @@ export default {
     align-items: center;
     z-index: 9999999;
 }
-.loader {
+.Loader {
   width: 120px;
   height: 120px;
   transform: rotate(90deg);
@@ -49,7 +49,6 @@ export default {
 .fade-out-click{
     margin: 0 10% 10% 0;
 }
-
   .internal-circle,
   .external-circle {
     stroke: #ffffff;

@@ -1,6 +1,5 @@
-
 <template>
-  <svg class="arrows" @click="onClickArrows()">
+  <svg class="arrows" @click="onClickArrows">
     <path class="a1" d="M0 0 L30 32 L60 0" />
     <path class="a2" d="M0 20 L30 52 L60 20" />
     <path class="a3" d="M0 40 L30 72 L60 40" />
@@ -12,11 +11,17 @@ export default {
   methods: {
     onClickArrows () {
       window.scrollBy(-1, 1)
-      setTimeout(() => { this.scrollToVideos() }, 800)
+      setTimeout(() => { this.scrollToDiv() }, 800)
     },
-    scrollToVideos () {
-      const elmntToView = document.getElementById('video-wrap')
-      elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
+    scrollToDiv () {
+      const videoDiv = document.getElementById('video-wrap')
+      const aboutDiv = document.getElementById('page-wrap')
+
+      if (!(videoDiv === null)) {
+        videoDiv.scrollIntoView({ block: 'start', behavior: 'smooth' })
+      } else if (!(aboutDiv === null)) {
+        aboutDiv.scrollIntoView({ block: 'start', behavior: 'smooth' })
+      }
     }
   }
 }
@@ -27,10 +32,10 @@ body {
   background:#0b1d2a;
 }
 .arrows {
-	width: 20%;
+	width: 15%;
 	height: 10%;
 	position: absolute;
-	bottom: 7.5%;
+	bottom: 10%;
 	}
 
 .arrows path {

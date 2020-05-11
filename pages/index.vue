@@ -1,11 +1,19 @@
 <template>
-  <section>
-    <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
-  </section>
+  <div id="home-wrap">
+    <wonder />
+    <section>
+      <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
+    </section>
+  </div>
 </template>
 
 <script>
+import wonder from '~/components/wonder'
+
 export default {
+  components: {
+    wonder
+  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/home', {
@@ -42,6 +50,17 @@ export default {
         })
       }
     })
+    window.addEventListener('resize', () => {
+      /* eslint prefer-const: "warn" */
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    })
   }
 }
 </script>
+
+<style scoped>
+  #about-wrap{
+    height: --vh;
+  }
+</style>
