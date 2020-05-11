@@ -12,7 +12,7 @@ export default {
   methods: {
     onClickArrows () {
       window.scrollBy(-1, 1)
-      setTimeout(() => { this.scrollToVideos() }, 1000)
+      setTimeout(() => { this.scrollToVideos() }, 800)
     },
     scrollToVideos () {
       const elmntToView = document.getElementById('video-wrap')
@@ -31,7 +31,6 @@ body {
 	height: 10%;
 	position: absolute;
 	bottom: 7.5%;
-    transform: translateX(-50%);
 	}
 
 .arrows path {
