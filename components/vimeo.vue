@@ -36,11 +36,9 @@ export default {
       scrolled: false
     }
   },
-  beforeMount () {
+  mounted () {
     // https://stackoverflow.com/questions/47327119/how-to-listen-to-scroll-events-in-vue-nuxtjs
-    window.addEventListener('wheel', this.showVids)
-    window.addEventListener('touchmove', this.showVids)
-    console.log()
+    window.addEventListener('load', this.showVids)
   },
   methods: {
     onReady () {

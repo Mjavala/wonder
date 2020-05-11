@@ -6,18 +6,18 @@
           Film
         </div>
       </div>
-      <div class="side-nav-item-wrap" @click="blackNavStyling">
-        <div class="side-nav-item">
+      <div class="side-nav-item-wrap">
+        <div class="side-nav-item" @click="blackNavStyling">
           Photo
         </div>
       </div>
-      <div class="side-nav-item-wrap" @click="blackNavStyling">
-        <div class="side-nav-item">
+      <div class="side-nav-item-wrap">
+        <div class="side-nav-item" @click="blackNavStyling">
           About
         </div>
       </div>
-      <div class="side-nav-item-wrap" @click="blackNavStyling">
-        <div class="side-nav-item">
+      <div class="side-nav-item-wrap">
+        <div class="side-nav-item" @click="blackNavStyling">
           Contact
         </div>
       </div>
@@ -31,6 +31,12 @@ export default {
     blackNavStyling (event) {
       event.target.classList.add('whiteText')
       event.target.parentElement.classList.add('blackBackground')
+    },
+    // will need polyfill for edge -
+    //  https://stackoverflow.com/questions/42503599/how-to-make-javascript-scrollintoview-smooth
+    scrollToVideos () {
+      const elmntToView = document.getElementById('video-wrap')
+      elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
   }
 }
