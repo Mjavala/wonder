@@ -66,5 +66,9 @@ module.exports = {
   build: {
     extend (config, ctx) {
     }
+  },
+  router: {
+    linkActiveClass: 'active-link',
+    linkExactActiveClass: 'exact-active-link'
   }
 }

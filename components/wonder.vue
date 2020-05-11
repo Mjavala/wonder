@@ -100,8 +100,11 @@ export default {
 
   a {
   color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
   }
-
+  .active-link {
+    border-bottom: 2px solid white;
+  }
   #wrapper{
     display: flex;
     justify-content: center;
