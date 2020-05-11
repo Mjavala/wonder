@@ -10,9 +10,9 @@
         @click="showSideMenu = true"
       ><g transform="translate(-6377.605 -701)"><rect width="36.167" height="5.167" transform="translate(6377.605 701)" fill="#fff" /><rect width="36.167" height="5.167" transform="translate(6377.605 710.877)" fill="#fff" /><rect width="36.167" height="5.167" transform="translate(6377.605 720.755)" fill="#fff" /></g></svg>
       <div id="nav-wrapper">
-        <div class="nav-item" @click="scrollToVideos">
+        <nuxt-link to="/">
           Film
-        </div>
+        </nuxt-link>
         <div class="nav-item">
           Photo
         </div>
@@ -25,6 +25,7 @@
       </div>
     </nav>
     <sideNav v-if="showSideMenu" id="side-nav-wonder" />
+    <downArrow />
 
     <!--
     <video autoplay>
@@ -36,10 +37,12 @@
 
 <script>
 import sideNav from '~/components/sideNav'
+import downArrow from '~/components/downArrow'
 
 export default {
   components: {
-    sideNav
+    sideNav,
+    downArrow
   },
   data () {
     return {

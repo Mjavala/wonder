@@ -1,7 +1,7 @@
 <template>
   <div>
     <wonder />
-    <nuxt />
+    <nuxt :key="$route.fullPath" />
   </div>
 </template>
 

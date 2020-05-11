@@ -23,7 +23,6 @@ export default {
 </script>
 
 <style scoped>
-
     #wrapper2{
         height: 100vh;
         position: relative;
