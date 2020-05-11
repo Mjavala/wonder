@@ -1,6 +1,6 @@
 <template>
   <div id="home-wrap">
-    <wonder />
+    <wonder :viewport="viewport" />
     <section>
       <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
     </section>
@@ -32,7 +32,8 @@ export default {
   },
   data () {
     return {
-      story: { content: {} }
+      story: { content: {} },
+      viewport: Number
     }
   },
   mounted () {
@@ -50,17 +51,12 @@ export default {
         })
       }
     })
-    window.addEventListener('resize', () => {
+    window.addEventListener('load', () => {
       /* eslint prefer-const: "warn" */
       const vh = window.innerHeight * 0.01
+      this.viewport = vh
       document.documentElement.style.setProperty('--vh', `${vh}px`)
     })
   }
 }
 </script>
-
-<style scoped>
-  #about-wrap{
-    height: --vh;
-  }
-</style>
