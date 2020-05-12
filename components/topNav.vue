@@ -100,5 +100,45 @@ export default {
       padding: 1.5625em;
       cursor: pointer;
     }
+  @media only screen and (min-width: 480px) {
+        #nav-wrapper{
+        width: 50%;
+        font-size: .95em;
+        top: 0.5%;
+    }
+  }
+  @media only screen and (min-width: 640px) {
+        #nav-wrapper{
+
+        top: 1%;
+    }
+  }
+  @media only screen and (min-width: 750px) {
+        #nav-wrapper{
+        font-size: 1em;
+        top: 1.5%;
+    }
+  }
+  @media only screen and (min-width: 800px) {
+        #nav-wrapper{
+          width: 45%;
+    }
+  }
+  @media only screen and (min-width: 900px) {
+        #nav-wrapper{
+          width: 40%;
+    }
+    .hamburger{
+      width: 5%;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+        #nav-wrapper{
+          width: 30%;
+    }
+    .hamburger{
+      width: 3.5%;
+    }
+  }
 
 </style>

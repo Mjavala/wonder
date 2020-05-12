@@ -18,7 +18,6 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: '~/components/loader.vue',
   /*
   ** Plugins to load before mounting the App
   */

@@ -11,7 +11,7 @@
           :srcset="`${require('~/assets/360.mp4')} 360px, ${require('~/assets/414.mp4')} 414px`"
                   sizes="100vw"
           -->
-      <source :src="require('~/assets/720.mp4')">
+      <source src="~/assets/720.mp4" type="video/mp4">
     </video>
     <downArrow
       v-if="loaded"

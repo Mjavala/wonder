@@ -67,7 +67,6 @@ export default {
       width: 97.5%;
       top: -1.75%;
       background-color: white;
-
     }
     .life {
       position: absolute;
@@ -122,4 +121,149 @@ export default {
       line-height: 1em;
       font-size: 1.2em;
     }
+     @media only screen and (max-height: 600px) {
+      #abt-text{
+        line-height: 1em;
+        font-size: 1em;
+      }
+     }
+     @media only screen and (max-height: 480px) {
+      #abt-text{
+        line-height: 1em;
+        font-size: .9em;
+      }
+     }
+      @media only screen and (min-width: 640px) {
+        #text-wrap-inner{
+      margin: 3em;
+    }
+        .birth {
+        width: 80%;
+              top: -2.5%;
+
+        }
+        .life {
+          width: 5.8%;
+        }
+        .environment{
+          width: 4.3%;
+        }
+        .environment-wrap{
+          width: 5.5%;
+        }
+        .bottom {
+          width: 75%;
+        }
+        .bottom-wrap {
+          width: 83%;
+        }
+      }
+
+    @media only screen and (min-width: 780px) {
+      #text-wrap-inner{
+      margin: 5.5em;
+    }
+      #inner-wrap {
+      margin: 3em;
+    }
+      .birth {
+      width: 65%;
+      }
+      .life {
+        width: 4.8%;
+        left: -2.2%;
+      }
+      .environment{
+        width: 3.5%;
+        right: -1.5%;
+      }
+      .environment-wrap{
+        width: 4.6%;
+      }
+      .bottom {
+        width: 60%;
+        bottom: -2%;
+      }
+      .bottom-wrap {
+        width: 70%;
+      }
+    }
+
+    @media only screen and (min-width: 900px) {
+      .birth {
+        width: 60%;
+      }
+      .life {
+        width: 4.2%;
+        left: -2.2%;
+      }
+      .environment{
+        width: 3.25%;
+        right: -1.5%;
+      }
+      .environment-wrap{
+        width: 4.2%;
+      }
+      .bottom {
+        width: 50%;
+        bottom: -2%;
+      }
+      .bottom-wrap {
+        width: 60%;
+      }
+    }
+
+    @media only screen and (min-width: 1140px) {
+      .birth {
+        width: 50%;
+      }
+      .life {
+        width: 3.5%;
+        left: -2.2%;
+      }
+      .environment{
+        width: 2.7%;
+        right: -1.5%;
+      }
+      .environment-wrap{
+        width: 3.5%;
+      }
+      .bottom {
+        width: 45%;
+        bottom: -1.5%;
+      }
+      .bottom-wrap {
+        width: 51%;
+      }
+    }
+
+    @media only screen and (min-width: 1400px) {
+      #abt-text{
+      font-family: "Trash Regular";
+      line-height: 1.1em;
+      font-size: 1.3em;
+    }
+      .birth {
+        width: 40%;
+      }
+      .life {
+        width: 2.75%;
+        left: -1.3%;
+      }
+      .environment{
+        width: 2.1%;
+        right: -1%;
+      }
+      .environment-wrap{
+        width: 2.8%;
+      }
+      .bottom {
+        width: 36%;
+        bottom: -1.5%;
+      }
+      .bottom-wrap {
+        width: 41%;
+      }
+    }
+
 </style>
