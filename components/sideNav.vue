@@ -2,9 +2,9 @@
   <div>
     <div id="side-nav">
       <div class="side-nav-item-wrap">
-        <div id="film" class="side-nav-item" @click="blackNavStyling">
+        <nuxt-link id="film" to="/" class="side-nav-item" @click.native="blackNavStyling">
           Film
-        </div>
+        </nuxt-link>
       </div>
       <div class="side-nav-item-wrap">
         <div class="side-nav-item" @click="blackNavStyling">
@@ -12,14 +12,14 @@
         </div>
       </div>
       <div class="side-nav-item-wrap">
-        <div class="side-nav-item" @click="blackNavStyling">
+        <nuxt-link to="/about" class="side-nav-item" @click.native="blackNavStyling">
           About
-        </div>
+        </nuxt-link>
       </div>
       <div class="side-nav-item-wrap">
-        <div class="side-nav-item" @click="blackNavStyling">
+        <nuxt-link to="/contact" class="side-nav-item" @click.native="blackNavStyling">
           Contact
-        </div>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -43,6 +43,11 @@ export default {
 </script>
 
 <style scoped>
+
+    a {
+        color: inherit; /* blue colors for links too */
+        text-decoration: inherit; /* no underline */
+    }
     .whiteText {
         color: white;
     }

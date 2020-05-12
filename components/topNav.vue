@@ -18,9 +18,9 @@
       <nuxt-link to="/about" class="nav-item" @click="underlineCurrentPage">
         About
       </nuxt-link>
-      <div class="nav-item">
+      <nuxt-link to="/contact" class="nav-item">
         Contact
-      </div>
+      </nuxt-link>
     </div>
     <sideNav v-if="showSideMenu" />
   </nav>
@@ -52,6 +52,12 @@ export default {
         if (target === 'film') {
           setTimeout(() => { this.scrollToVideos() }, 1000)
         }
+        if (target === 'video-test') {
+          this.showSideMenu = false
+        }
+        if (target === 'wrapper2') {
+          this.showSideMenu = false
+        }
       })
     }
   }
@@ -59,7 +65,6 @@ export default {
 </script>
 
 <style scoped>
-
     a {
         color: inherit; /* blue colors for links too */
         text-decoration: inherit; /* no underline */
@@ -67,7 +72,9 @@ export default {
     .exact-active-link {
         border-bottom: 2px solid white;
     }
-
+    .noShow{
+      opacity: 0;
+    }
     #nav-wrapper{
     display: flex;
     flex-direction: row;
@@ -85,13 +92,13 @@ export default {
     cursor: pointer;
     font-family: "Trash Regular";
   }
-.hamburger {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6%;
-    padding: 1.5625em;
-    cursor: pointer;
-  }
+  .hamburger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6%;
+      padding: 1.5625em;
+      cursor: pointer;
+    }
 
 </style>

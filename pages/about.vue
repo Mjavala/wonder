@@ -1,6 +1,6 @@
 <template>
   <div id="about-wrap">
-    <wonder :viewport="viewport" />
+    <wonder />
     <section>
       <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
     </section>
@@ -31,8 +31,7 @@ export default {
   },
   data () {
     return {
-      story: { content: {} },
-      viewport: Number
+      story: { content: {} }
     }
   },
   mounted () {

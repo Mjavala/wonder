@@ -1,6 +1,5 @@
 <template>
-  <div id="home-wrap">
-    <wonder :viewport="viewport" />
+  <div id="contact-wrap">
     <section>
       <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
     </section>
@@ -8,15 +7,10 @@
 </template>
 
 <script>
-import wonder from '~/components/wonder'
-
 export default {
-  components: {
-    wonder
-  },
   asyncData (context) {
     // Load the JSON from the API
-    return context.app.$storyapi.get('cdn/stories/home', {
+    return context.app.$storyapi.get('cdn/stories/contact', {
       version: 'draft'
     }).then((res) => {
       return res.data
@@ -32,8 +26,7 @@ export default {
   },
   data () {
     return {
-      story: { content: {} },
-      viewport: Number
+      story: { content: {} }
     }
   },
   mounted () {
@@ -52,10 +45,17 @@ export default {
       }
     })
     window.addEventListener('load', () => {
-      /* eslint prefer-const: "warn" */
-      const vh = window.innerHeight * 0.01
-      this.viewport = vh
+      const vh = window.innerHeight
+      console.log(vh)
+      const root = document.getElementById('wrapper')
+      root.style.height = `${vh}px`
     })
   }
 }
 </script>
+
+<style scoped>
+  #contact-wrap{
+    height: --vh;
+  }
+</style>

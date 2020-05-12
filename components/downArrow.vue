@@ -35,7 +35,7 @@ body {
 	width: 15%;
 	height: 10%;
 	position: absolute;
-	bottom: 10%;
+	bottom: 7.5%;
 	}
 
 .arrows path {
