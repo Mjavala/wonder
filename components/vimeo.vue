@@ -1,6 +1,8 @@
 <template>
   <div v-editable="blok" class="vimeo">
+    <div id="video-anchor">
     <div v-if="scrolled" id="video-wrap">
+      <!--
       <div
         id="play"
         class="title"
@@ -8,6 +10,7 @@
       >
         {{ this.title }}
       </div>
+      -->
       <no-ssr>
         <vimeo-player
           ref="player"
@@ -19,12 +22,20 @@
         />
       </no-ssr>
     </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   props: ['blok'],
+  watch: {
+    scrolled (newVal) {
+      if (newVal === true) {
+        this.scrolled2 = true
+      }
+    }
+  },
   data () {
     return {
       video: this.blok.video,
@@ -45,8 +56,9 @@ export default {
   methods: {
     onReady () {
       this.playerReady = true
-      this.scrolled = true
-    },
+      this.scrolled2 = true
+    }
+    /*
     play () {
       this.$refs.player.play()
       this.showPlayButton()
@@ -54,10 +66,8 @@ export default {
     pause () {
       this.$refs.player.pause()
       this.playing = false
-    },
-    showVids () {
-      this.scrolled = true
     }
+    */
   }
 }
 </script>
@@ -83,5 +93,9 @@ export default {
   #play{
     cursor: pointer;
     display: block;
+  }
+  #video-anchor{
+    overflow: auto;
+    background-color: #ff0000;
   }
 </style>

@@ -14,7 +14,7 @@ export default {
       setTimeout(() => { this.scrollToDiv() }, 800)
     },
     scrollToDiv () {
-      const videoDiv = document.getElementById('video-wrap')
+      const videoDiv = document.getElementById('video-anchor')
       const aboutDiv = document.getElementById('page-wrap')
 
       if (!(videoDiv === null)) {
