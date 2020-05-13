@@ -1,9 +1,8 @@
 <template>
-  <svg class="arrows" @click="onClickArrows">
-    <path class="a1" d="M0 0 L30 32 L60 0" />
-    <path class="a2" d="M0 20 L30 52 L60 20" />
-    <path class="a3" d="M0 40 L30 72 L60 40" />
-  </svg>
+  <div class="arrow-down">
+    <div class="left" @click="onClickArrows" />
+    <div class="right" @click="onClickArrows" />
+  </div>
 </template>
 
 <script>
@@ -28,52 +27,116 @@ export default {
 </script>
 
 <style scoped>
-body {
-  background:#0b1d2a;
-}
-.arrows {
-	width: 15%;
-	height: 10%;
-	position: absolute;
-	bottom: 7.5%;
-	}
 
-.arrows path {
-	stroke: #fff;
-	fill: transparent;
-	stroke-width: 1px;
-	animation: arrow 2s infinite;
-	-webkit-animation: arrow 2s infinite;
+.arrow-down{
+  width:60px;
+  height:40px;
+  margin:0 0 0 -30px;
+  position:absolute;
+  left:50%;
+  bottom:0px;
+  animation: arrow 0.5s 1s infinite ease-out alternate;
+  -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
+
 }
 
-@keyframes arrow
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+.arrow-down:hover{
+   animation-play-state: paused;
+   -webkit-animation-play-state: paused;
 }
 
-@-webkit-keyframes arrow /*Safari and Chrome*/
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+.left{
+  position:absolute;
+  height:10px;
+  width:40px;
+  background:white;
+  cursor: pointer;
+  transform:rotate(240deg);
+  -webkit-transform:rotate(240deg);
+  top:10px;
+  left:10px;
+  border-radius:4px;
+  -webkit-border-radius:4px;
+  transform-origin:5px 50%;
+  -webkit-transform-origin:5px 50%;
+  animation: leftArrow 0.5s 1s infinite ease-out alternate;
+  -webkit-animation: leftArrow 0.5s 1s infinite ease-out alternate;
 }
 
-.arrows path.a1 {
-	animation-delay:-1s;
-	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+.right{
+  position:absolute;
+  height:10px;
+  width:40px;
+  background:white;
+  cursor: pointer;
+  transform:rotate(-60deg);
+  -webkit-transform:rotate(-60deg);
+  top:10px;
+  left:10px;
+  border-radius:4px;
+  -webkit-border-radius:4px;
+  transform-origin:5px 50%;
+  -webkit-transform-origin:5px 50%;
+  animation: rightArrow 0.5s 1s infinite ease-out alternate;
+  -webkit-animation: rightArrow 0.5s 1s infinite ease-out alternate;
 }
 
-.arrows path.a2 {
-	animation-delay:-0.5s;
-	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+@keyframes arrow{
+  0% {
+    bottom:0px;
+  }
+  100%{
+    bottom:40px;
+  }
 }
 
-.arrows path.a3 {
-	animation-delay:0s;
-	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+@keyframes arrow{
+  0% {
+    bottom:0px;
+  }
+  100%{
+    bottom:40px;
+  }
+}
+
+@-webkit-keyframes arrow{
+  0% {
+    bottom:0px;
+  }
+  100%{
+    bottom:40px;
+  }
+}
+
+@keyframes leftArrow{
+  0% {
+  }
+  100%{
+    -webkit-transform:rotate(225deg);
+  }
+}
+
+@-webkit-keyframes leftArrow{
+  0% {
+  }
+  100%{
+    -webkit-transform:rotate(225deg);
+  }
+}
+
+@keyframes rightArrow{
+  0% {
+  }
+  100%{
+    -webkit-transform:rotate(-45deg);
+  }
+}
+
+@-webkit-keyframes rightArrow{
+  0% {
+  }
+  100%{
+    -webkit-transform:rotate(-45deg);
+  }
 }
 </style>

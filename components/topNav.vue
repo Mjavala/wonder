@@ -46,6 +46,10 @@ export default {
     sideNavDrawer () {
       document.addEventListener('click', (e) => {
         const target = e.target.getAttribute('id')
+        const targetClass = e.target.getAttribute('class')
+        if (targetClass === 'side-nav-item whiteText') {
+          setTimeout(() => { this.showSideMenu = false }, 1000)
+        }
         if (target === 'wrapper') {
           this.showSideMenu = false
         }

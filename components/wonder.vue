@@ -14,7 +14,6 @@
       <source src="~/assets/720.mp4" type="video/mp4">
     </video>
     <downArrow
-      v-if="loaded"
       v-cloak
       id="arrow-c"
       class="noShow"
@@ -31,17 +30,14 @@ export default {
     downArrow,
     naV
   },
-  props: [
-    'viewport'
-  ],
   data () {
     return {
       loaded: true,
-      showSideMenu: false
+      showSideMenu: false,
+      load: false
     }
   },
   mounted () {
-    this.loaded = true
     window.addEventListener('load', () => {
       this.showNavArrow()
     })
@@ -52,7 +48,6 @@ export default {
     //  https://stackoverflow.com/questions/42503599/how-to-make-javascript-scrollintoview-smooth
     showNavArrow () {
       setTimeout(() => {
-        this.loaded = true
         const nav = document.getElementById('navigation')
         const arrow = document.getElementById('arrow-c')
         nav.classList.remove('noShow')

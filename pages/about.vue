@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import wonder from '~/components/wonder'
+import wonder from '~/components/wonderStatic'
 export default {
   components: {
     wonder

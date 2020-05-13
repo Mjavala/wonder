@@ -1,6 +1,9 @@
 <template>
   <div id="home-wrap">
-    <wonder :viewport="viewport" />
+    <wonder v-if="!counter" @videoIsPlaying="childMessageReceived" />
+    <wonderStatic
+      v-if="counter"
+    />
     <section>
       <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
     </section>
@@ -9,10 +12,12 @@
 
 <script>
 import wonder from '~/components/wonder'
+import wonderStatic from '~/components/wonderStatic'
 
 export default {
   components: {
-    wonder
+    wonder,
+    wonderStatic
   },
   asyncData (context) {
     // Load the JSON from the API
@@ -33,8 +38,11 @@ export default {
   data () {
     return {
       story: { content: {} },
-      viewport: Number
+      counter: true
     }
+  },
+  created () {
+    this.counter = false
   },
   mounted () {
     // use the bridge to listen to events
@@ -56,6 +64,11 @@ export default {
       const vh = window.innerHeight * 0.01
       this.viewport = vh
     })
+  },
+  methods: {
+    childMessageReceived () {
+      this.counter = true
+    }
   }
 }
 </script>

@@ -7,7 +7,7 @@
         </nuxt-link>
       </div>
       <div class="side-nav-item-wrap">
-        <div class="side-nav-item" @click="blackNavStyling">
+        <div class="side-nav-item" @click.native="whiteNavStyling">
           Photo
         </div>
       </div>
@@ -45,8 +45,8 @@ export default {
 <style scoped>
 
     a {
-        color: inherit; /* blue colors for links too */
-        text-decoration: inherit; /* no underline */
+      color: inherit; /* blue colors for links too */
+      text-decoration: inherit; /* no underline */
     }
     .whiteText {
         color: black;
@@ -66,6 +66,7 @@ export default {
     flex-direction: column;
     justify-content: space-evenly;
     font-family: "Trash Regular";
+    z-index: 1000;
   }
   .side-nav-item-wrap {
     width: 15em;
