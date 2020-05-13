@@ -67,6 +67,11 @@ export default {
 
 <style scoped>
 
+.brightness{
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'brightness\'><feColorMatrix type=\'matrix\' values=\'1.2 0 0 0 0 0 1.2 0 0 0 0 0 1.2 0 0 0 0 0 1.2 0\'/></filter></svg>#brightness"); /* Firefox 3.5+ */
+    -webkit-filter:brightness(108.5%); /* Chrome 19+ & Safari 6+ */
+}
+
   @font-face {
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf");
@@ -99,6 +104,7 @@ export default {
   }
   #video-test {
     width: 100vw;
+    background-color: #ff0000;
   }
   .noShow{
     opacity: 0;
