@@ -92,14 +92,12 @@ export default {
   .whiteUnderline{
     border-bottom: 2px solid white;
   }
-
-  #video-test {
-    position: absolute;
-    left: -5%;
-  }
   #video-test {
     width: 100vw;
     background-color: #ff0000;
+    position: absolute;
+    left: -5%;
+    height: 100vh;
   }
   .noShow{
     opacity: 0;
