@@ -6,11 +6,11 @@
           Film
         </nuxt-link>
       </div>
-      <div class="side-nav-item-wrap">
-        <div class="side-nav-item" @click="blackNavStyling">
+      <nuxt-link to="/photos" class="side-nav-item-wrap" @click.native="blackNavStyling">
+        <div class="side-nav-item">
           Photo
         </div>
-      </div>
+      </nuxt-link>
       <div class="side-nav-item-wrap">
         <nuxt-link to="/about" class="side-nav-item" @click.native="blackNavStyling">
           About
@@ -35,8 +35,12 @@ export default {
     // will need polyfill for edge -
     //  https://stackoverflow.com/questions/42503599/how-to-make-javascript-scrollintoview-smooth
     scrollToVideos () {
-      const elmntToView = document.getElementById('video-wrap')
-      elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
+      window.scrollBy(-1, 1)
+
+      setTimeout(() => {
+        const elmntToView = document.getElementById('video-wrap')
+        elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
+      }, 800)
     }
   }
 }

@@ -49,7 +49,7 @@ export default {
   },
   mounted () {
     // https://stackoverflow.com/questions/47327119/how-to-listen-to-scroll-events-in-vue-nuxtjs
-    window.addEventListener('scroll', () => {
+    window.addEventListener('load', () => {
       this.scrolled = true
     })
   },

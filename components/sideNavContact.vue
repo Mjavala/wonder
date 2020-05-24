@@ -2,15 +2,15 @@
   <div>
     <div id="side-nav">
       <div class="side-nav-item-wrap">
-        <nuxt-link id="film" to="/" class="side-nav-item" @click.native="whiteNavStyling">
+        <nuxt-link id="film2" to="/" class="side-nav-item" @click.native="whiteNavStyling">
           Film
         </nuxt-link>
       </div>
-      <div class="side-nav-item-wrap">
+      <nuxt-link to="/photos" class="side-nav-item-wrap">
         <div class="side-nav-item" @click.native="whiteNavStyling">
           Photo
         </div>
-      </div>
+      </nuxt-link>
       <div class="side-nav-item-wrap">
         <nuxt-link to="/about" class="side-nav-item" @click.native="whiteNavStyling">
           About
@@ -27,17 +27,18 @@
 
 <script>
 export default {
+  data () {
+    return {
+      showSideMenu: false
+    }
+  },
   methods: {
     whiteNavStyling (event) {
       event.target.classList.add('whiteText')
       event.target.parentElement.classList.add('whiteBackground')
-    },
+    }
     // will need polyfill for edge -
     //  https://stackoverflow.com/questions/42503599/how-to-make-javascript-scrollintoview-smooth
-    scrollToVideos () {
-      const elmntToView = document.getElementById('video-wrap')
-      elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
-    }
   }
 }
 </script>
@@ -67,6 +68,7 @@ export default {
     justify-content: space-evenly;
     font-family: "Trash Regular";
     z-index: 1000;
+    font-size: calc(13px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
   }
   .side-nav-item-wrap {
     width: 15em;

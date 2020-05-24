@@ -27,11 +27,6 @@ export default {
       loaded: true // need to find a solution that allows for conditional rendering
     }
   },
-  watch: {
-    $route: (newVal) => {
-      console.log(newVal)
-    }
-  },
   mounted () {
     window.addEventListener('load', () => {
       this.loaded = true

@@ -33,8 +33,8 @@ export default {
   height:40px;
   margin:0 0 0 -30px;
   position:absolute;
-  left:50%;
-  bottom:0px;
+  left: 50%;
+  bottom: 5%;
   animation: arrow 0.5s 1s infinite ease-out alternate;
   -webkit-animation: arrow 0.5s 1s infinite ease-out alternate;
 

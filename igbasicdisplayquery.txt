@@ -1,0 +1,3 @@
+curl -X GET \
+  'https://graph.instagram.com/me?fields=id,username&access_token=IGQVJXaVhNS0MxTTNialJ2eFgyR0ZAzT2w5MXhMNmNDZAFNDVE1fN2RucmlSTG04WlJSbjA1VXFDc2twUEg2ampvQTJoNnJKN0RybmNIZA25KYTZAVenBDVnlXMXp3OVZAZAWHhyaWZAzckRNbTRvQW9YVG5VXwZDZD'
+
