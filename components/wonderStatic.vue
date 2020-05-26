@@ -34,6 +34,10 @@ export default {
   }
 
   #wrapper{
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     justify-content: center;
     align-items: center;
