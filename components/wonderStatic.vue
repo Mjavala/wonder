@@ -34,7 +34,7 @@ export default {
   }
 
   #wrapper{
-    display: -webkit-flex;
+    display: -webkit-flex !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,6 +60,10 @@ export default {
   }
   .enter{
     animation: 1s enter ease forwards;
+  }
+  #wonder {
+    height: auto !important;
+    width: 100vw !important;
   }
   @media only screen and (min-width: 780px) {
     #wonder {
