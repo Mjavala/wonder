@@ -24,7 +24,8 @@ export default {
     naV
   },
   mounted () {
-    if ( isIphone() && iPhoneVersion() === "6"){
+    if ( this.isIphone() && this.iPhoneVersion() === "6"){
+      console.log('upgrade yo shit ffs ffs ffs')
       const wonder = document.getElementById('wonder')
       wonder.classList.add('wonder')
       wonder.classList.add('wonder-alignment')
