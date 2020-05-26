@@ -21,6 +21,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
+
   plugins: [
     '~/plugins/components.js',
     '~/plugins/vimeo-player.js'

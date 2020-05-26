@@ -6,8 +6,8 @@
       id="navigation"
       class="noShow"
     />
-    <video id="video-test" muted playsinline>
-      <source src="~/assets/720.mp4" type="video/mp4">
+    <video v-show="ready" id="video-test" muted playsinline>
+      <source src="~/assets/960.mp4" type="video/mp4">
       <source src="~/assets/720.webm" type="video/webm">
       <!--
             :srcset="`${require('~/assets/360.mp4')} 360px, ${require('~/assets/414.mp4')} 414px`"
@@ -30,17 +30,28 @@ export default {
     return {
       loaded: true,
       showSideMenu: false,
-      load: false
+      load: false,
+      ready: false
     }
   },
-
   mounted () {
     window.addEventListener('load', () => {
       const vid = document.getElementById('video-test')
-      vid.play()
+      if (vid.readyState === 4) {
+        this.ready = true
+        vid.play()
+      }
       this.testFunc()
       this.showNav()
     })
+    const vid = document.getElementById('video-test')
+    if (vid.readyState === 4) {
+      console.log('video-ready')
+      this.ready = true
+      vid.play()
+    }
+    this.testFunc()
+    this.showNav()
   },
   methods: {
     // will need polyfill for edge -
@@ -76,7 +87,6 @@ export default {
           ctx.drawImage(vid, 0, 0, 1, 1)
 
           const p = ctx.getImageData(0, 0, 1, 1).data
-          console.log('rgb(' + p[0] + ',' + p[1] + ',' + p[2] + ')')
           if (this.isColorInRange(nativeColor, p)) {
             vidBg.style.backgroundColor = 'rgb(' + p[0] + ',' + p[1] + ',' + p[2] + ')'
             console.log(vidBg.style.backgroundColor)

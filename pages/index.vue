@@ -1,9 +1,6 @@
 <template>
   <div id="home-wrap">
-    <wonder v-if="!counter" @videoIsPlaying="childMessageReceived" />
-    <wonderStatic
-      v-if="counter"
-    />
+    <wonderStatic />
     <section>
       <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
     </section>
@@ -11,12 +8,10 @@
 </template>
 
 <script>
-import wonder from '~/components/wonder'
 import wonderStatic from '~/components/wonderStatic'
 
 export default {
   components: {
-    wonder,
     wonderStatic
   },
   asyncData (context) {
@@ -35,14 +30,11 @@ export default {
       }
     })
   },
+  transition: 'tweakOpacity',
   data () {
     return {
-      story: { content: {} },
-      counter: true
+      story: { content: {} }
     }
-  },
-  created () {
-    this.counter = false
   },
   mounted () {
     // use the bridge to listen to events
@@ -64,11 +56,15 @@ export default {
       const vh = window.innerHeight * 0.01
       this.viewport = vh
     })
-  },
-  methods: {
-    childMessageReceived () {
-      this.counter = true
-    }
   }
 }
 </script>
+
+<style>
+  .tweakOpacity-enter-active, .tweakOpacity-leave-active {
+    transition: opacity .55s ease-in-out;
+  }
+  .tweakOpacity-enter, .tweakOpacity-leave-active {
+    opacity: 0;
+  }
+</style>

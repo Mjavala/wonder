@@ -34,6 +34,7 @@ export default {
       story: { content: {} }
     }
   },
+  transition: 'tweakOpacity',
   mounted () {
     // use the bridge to listen to events
     this.$storybridge.on(['input', 'published', 'change'], (event) => {
@@ -51,7 +52,6 @@ export default {
     })
     window.addEventListener('load', () => {
       const vh = window.innerHeight
-      console.log(vh)
       const root = document.getElementById('wrapper')
       root.style.height = `${vh}px`
     })
@@ -62,5 +62,11 @@ export default {
 <style scoped>
   #about-wrap{
     height: --vh;
+  }
+  .tweakOpacity-enter-active, .tweakOpacity-leave-active {
+    transition: opacity .55s ease-in-out;
+  }
+  .tweakOpacity-enter, .tweakOpacity-leave-active {
+    opacity: 0;
   }
 </style>

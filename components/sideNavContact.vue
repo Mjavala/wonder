@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div id="side-nav">
+    <div id="side-nav-contact">
       <div class="side-nav-item-wrap">
         <nuxt-link id="film2" to="/" class="side-nav-item" @click.native="whiteNavStyling">
           Film
         </nuxt-link>
       </div>
-      <nuxt-link to="/photos" class="side-nav-item-wrap">
-        <div class="side-nav-item" @click.native="whiteNavStyling">
+      <div class="side-nav-item-wrap">
+        <nuxt-link to="/photos" class="side-nav-item" @click.native="whiteNavStyling">
           Photo
-        </div>
-      </nuxt-link>
+        </nuxt-link>
+      </div>
       <div class="side-nav-item-wrap">
         <nuxt-link to="/about" class="side-nav-item" @click.native="whiteNavStyling">
           About
@@ -27,36 +27,35 @@
 
 <script>
 export default {
-  data () {
-    return {
-      showSideMenu: false
-    }
+  mounted () {
+    window.addEventListener('load', () => {
+      const vh = window.innerHeight
+      const root = document.getElementById('side-nav-contact')
+      root.style.height = `${vh}px`
+    })
   },
   methods: {
     whiteNavStyling (event) {
-      event.target.classList.add('whiteText')
+      event.target.classList.add('blackText')
       event.target.parentElement.classList.add('whiteBackground')
     }
-    // will need polyfill for edge -
-    //  https://stackoverflow.com/questions/42503599/how-to-make-javascript-scrollintoview-smooth
   }
 }
 </script>
 
 <style scoped>
-
     a {
       color: inherit; /* blue colors for links too */
       text-decoration: inherit; /* no underline */
     }
-    .whiteText {
+    .blackText {
         color: black;
     }
     .whiteBackground{
         transition: all 1s ease;
         background-color: white;
     }
-    #side-nav{
+    #side-nav-contact{
     height: 100vh;
     position: absolute;
     left: 0;
@@ -67,7 +66,7 @@ export default {
     flex-direction: column;
     justify-content: space-evenly;
     font-family: "Trash Regular";
-    z-index: 1000;
+    z-index: 100;
     font-size: calc(13px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
   }
   .side-nav-item-wrap {

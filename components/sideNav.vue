@@ -27,27 +27,23 @@
 
 <script>
 export default {
+  mounted () {
+    window.addEventListener('load', () => {
+      const vh = window.innerHeight
+      const root = document.getElementById('side-nav')
+      root.style.height = `${vh}px`
+    })
+  },
   methods: {
     blackNavStyling (event) {
       event.target.classList.add('whiteText')
       event.target.parentElement.classList.add('blackBackground')
-    },
-    // will need polyfill for edge -
-    //  https://stackoverflow.com/questions/42503599/how-to-make-javascript-scrollintoview-smooth
-    scrollToVideos () {
-      window.scrollBy(-1, 1)
-
-      setTimeout(() => {
-        const elmntToView = document.getElementById('video-wrap')
-        elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
-      }, 800)
     }
   }
 }
 </script>
 
 <style scoped>
-
     a {
         color: inherit; /* blue colors for links too */
         text-decoration: inherit; /* no underline */
@@ -69,6 +65,7 @@ export default {
     flex-direction: column;
     justify-content: space-evenly;
     font-family: "Trash Regular";
+    z-index: 100;
   }
   .side-nav-item-wrap {
     width: 15em;

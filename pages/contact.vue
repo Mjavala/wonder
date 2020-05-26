@@ -29,6 +29,7 @@ export default {
       story: { content: {} }
     }
   },
+  transition: 'tweakOpacity',
   mounted () {
     // use the bridge to listen to events
     this.$storybridge.on(['input', 'published', 'change'], (event) => {
@@ -46,16 +47,31 @@ export default {
     })
     window.addEventListener('load', () => {
       const vh = window.innerHeight
-      console.log(vh)
       const root = document.getElementById('wrapper')
       root.style.height = `${vh}px`
     })
+  },
+  methods: {
+    sideNavDrawer () {
+      document.addEventListener('click', (e) => {
+        const targetClass = e.target.getAttribute('class')
+        if (targetClass === 'side-nav-item blackText side-nav-item active-link') {
+          setTimeout(() => { this.clicked = false }, 1000)
+        }
+      })
+    }
   }
 }
 </script>
 
-<style scoped>
+<style>
   #contact-wrap{
     height: --vh;
+  }
+  .tweakOpacity-enter-active, .tweakOpacity-leave-active {
+    transition: opacity .55s ease-in-out;
+  }
+  .tweakOpacity-enter, .tweakOpacity-leave-active {
+    opacity: 0;
   }
 </style>

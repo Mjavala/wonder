@@ -22,7 +22,7 @@
         Contact
       </nuxt-link>
     </div>
-    <sideNav v-if="showSideMenu" id="sideNav" />
+    <sideNav v-if="showSideMenu" id="side-nav-wrap" />
   </nav>
 </template>
 
@@ -50,7 +50,7 @@ export default {
         if (targetClass === 'side-nav-item whiteText') {
           setTimeout(() => { this.showSideMenu = false }, 1000)
         }
-        if (target === 'wrapper') {
+        if (target === 'side-nav-wrap') {
           this.showSideMenu = false
         }
         if (target === 'film') {
@@ -59,8 +59,22 @@ export default {
             this.showSideMenu = false
           }, 1000)
         }
-        if (target === 'video-test') {
+      })
+      // --- Mobile support --- //
+      document.addEventListener('touchstart', (e) => {
+        const target = e.target.getAttribute('id')
+        const targetClass = e.target.getAttribute('class')
+        if (targetClass === 'side-nav-item whiteText') {
+          setTimeout(() => { this.showSideMenu = false }, 1000)
+        }
+        if (target === 'side-nav-wrap') {
           this.showSideMenu = false
+        }
+        if (target === 'film') {
+          setTimeout(() => {
+            this.scrollToVideos()
+            this.showSideMenu = false
+          }, 1000)
         }
       })
     },
@@ -102,9 +116,24 @@ export default {
       cursor: pointer;
       padding:  1.5625em;
     }
-  #sideNav {
+  #side-nav-wrap{
     position: absolute;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+  }
+  @media only screen and (max-width: 640px) {
+    #nav-wrapper {
+      width: 100%;
+      align-items: flex-start;
+      padding-left: 0;
+      padding-right: 1.5625em;
+    }
+    .hamburger {
+      padding-right: 1em;
+      width: 3em;
+    }
   }
   @media only screen and (min-width: 780px) {
     .hamburger {

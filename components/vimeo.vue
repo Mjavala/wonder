@@ -40,23 +40,19 @@ export default {
       scrolled: false
     }
   },
-  watch: {
-    scrolled (newVal) {
-      if (newVal === true) {
-        this.scrolled2 = true
-      }
-    }
-  },
   mounted () {
     // https://stackoverflow.com/questions/47327119/how-to-listen-to-scroll-events-in-vue-nuxtjs
     window.addEventListener('load', () => {
       this.scrolled = true
     })
+    setTimeout(() => {
+      this.scrolled = true
+    }, 1500)
+    this.scrolled = true
   },
   methods: {
     onReady () {
       this.playerReady = true
-      this.scrolled2 = true
     }
     /*
     play () {

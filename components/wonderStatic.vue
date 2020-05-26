@@ -57,9 +57,6 @@ export default {
     font-size: calc(13px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
     max-height: 150px;
   }
-  #wonder {
-    padding: 0 2em;
-  }
   .enter{
     animation: 1s enter ease forwards;
   }
