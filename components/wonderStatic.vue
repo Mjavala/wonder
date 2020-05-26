@@ -22,6 +22,45 @@ import naV from '~/components/topNav'
 export default {
   components: {
     naV
+  },
+  mounted () {
+    if ( isIphone() && iPhoneVersion() === "6"){
+      const wonder = document.getElementById('wonder')
+      wonder.classList.add('wonder')
+      wonder.classList.add('wonder-alignment')
+    }
+  },
+  methods: {
+    iPhoneVersion() {
+      var iHeight = window.screen.height;
+      var iWidth = window.screen.width;
+
+      if (iWidth === 414 && iHeight === 896) {
+        return "Xmax-Xr";
+      }
+      else if (iWidth === 375 && iHeight === 812) {
+        return "X-Xs";
+      }
+      else if (iWidth === 320 && iHeight === 480) {
+        return "4";
+      }
+      else if (iWidth === 375 && iHeight === 667) {
+        return "6";
+      }
+      else if (iWidth === 414 && iHeight === 736) {
+        return "6+";
+      }
+      else if (iWidth === 320 && iHeight === 568) {
+        return "5";
+      }
+      else if (iHeight <= 480) {
+        return "2-3";
+      }
+      return 'none';
+    },
+    isIphone() {
+      return !!navigator.userAgent.match(/iPhone/i);
+    }
   }
 }
 </script>
@@ -61,9 +100,12 @@ export default {
   .enter{
     animation: 1s enter ease forwards;
   }
-  #wonder {
+  .wonder {
     height: auto !important;
     width: 100vw !important;
+  }
+  .wonder-alignment { /* iphone 6, 5 fix */
+    margin-top: 30vh !important;
   }
   @media only screen and (min-width: 780px) {
     #wonder {
