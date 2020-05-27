@@ -303,7 +303,7 @@ export default {
     .iphone56-contact-inner {
       position: relative;
       left: 0;
-      height: 100vh;
+      height: 75vh;
       width: 100vw;
     }
     .iphone56-contact-info {
