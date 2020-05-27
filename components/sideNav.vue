@@ -46,8 +46,8 @@ export default {
 <style scoped>
   @font-face {
   font-family: "Trash Regular";
-  font-display: swap;
   src: url("~static/fonts/trash-regular.ttf");
+  font-display: swap;
   }
   a {
     color: inherit; /* blue colors for links too */

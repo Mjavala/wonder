@@ -41,6 +41,7 @@ export default {
   @font-face {
   font-family: "Trash Regular", "Open Sans";
   src: url("~static/fonts/trash-regular.ttf");
+  font-display: swap;
   }
   @media all and (orientation: portrait) {
     #page-wrap {
