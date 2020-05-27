@@ -31,11 +31,8 @@ export default {
   src: url("~static/fonts/trash-regular.ttf");
   }
   #wrapper{
-    display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: center;  /* iOS 6-9 */
     justify-content: center;
-    -webkit-align-items: center;
     align-items: center;
     background-color: #FF0000;
     position: relative;
@@ -47,11 +44,8 @@ export default {
   }
   #navigation{
     z-index: 10;
-    display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: space-around;  /* iOS 6-9 */
     justify-content: space-around;
-    -webkit-align-content: center;
     align-content: center;
     position: absolute;
     top: 0;

@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper2">
+  <div v-if="loaded" id="wrapper2">
     <sideNav v-if="clicked" id="side-nav-contact-wrap" />
     <div id="center-wrap">
       <div id="innerWrap">
@@ -80,15 +80,15 @@
 </template>
 
 <script>
-import sideNav from '~/components/sideNavContact'
 export default {
   components: {
-    sideNav
+    sideNav: () => import('~/components/sideNavContact')
   },
   props: ['blok'],
   data () {
     return {
-      clicked: false
+      clicked: false,
+      loaded: false
     }
   },
   mounted () {
@@ -118,6 +118,9 @@ export default {
           this.showSideMenu = false
         }, 1000)
       }
+    })
+    document.addEventListener('load', () => {
+      this.loaded = true
     })
     /* --- does not work - when any touch move is made, everything lights up black
     document.addEventListener('touchstart', (event) => {
