@@ -45,21 +45,6 @@ export default {
         })
       }
     })
-    window.addEventListener('load', () => {
-      const vh = window.innerHeight
-      const root = document.getElementById('wrapper')
-      root.style.height = `${vh}px`
-    })
-  },
-  methods: {
-    sideNavDrawer () {
-      document.addEventListener('click', (e) => {
-        const targetClass = e.target.getAttribute('class')
-        if (targetClass === 'side-nav-item blackText side-nav-item active-link') {
-          setTimeout(() => { this.clicked = false }, 1000)
-        }
-      })
-    }
   }
 }
 </script>

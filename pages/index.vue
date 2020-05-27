@@ -51,11 +51,9 @@ export default {
         })
       }
     })
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        window.scroll(-1,1)
-      }, 1000)
-    })
+    setTimeout(() => {
+      window.scroll(-1,1)
+    }, 1000)
   }
 }
 </script>

@@ -28,9 +28,7 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('load', () => {
-      this.loaded = true
-    })
+    this.loaded = true
   }
 }
 </script>

@@ -27,13 +27,6 @@
 
 <script>
 export default {
-  mounted () {
-    window.addEventListener('load', () => {
-      const vh = window.innerHeight
-      const root = document.getElementById('side-nav')
-      root.style.height = `${vh}px`
-    })
-  },
   methods: {
     blackNavStyling (event) {
       event.target.classList.add('whiteText')

@@ -119,9 +119,7 @@ export default {
         }, 1000)
       }
     })
-    document.addEventListener('load', () => {
-      this.loaded = true
-    })
+    this.loaded = true
     /* --- does not work - when any touch move is made, everything lights up black
     document.addEventListener('touchstart', (event) => {
       const paths = event.target.querySelectorAll('path')
