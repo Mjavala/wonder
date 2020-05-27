@@ -21,7 +21,6 @@
 
 <script>
 import naV from '~/components/topNav'
-
 export default {
   components: {
     naV
@@ -85,7 +84,6 @@ export default {
           canvas.height = 2
           const ctx = canvas.getContext('2d')
           ctx.drawImage(vid, 0, 0, 1, 1)
-
           const p = ctx.getImageData(0, 0, 1, 1).data
           if (this.isColorInRange(nativeColor, p)) {
             vidBg.style.backgroundColor = 'rgb(' + p[0] + ',' + p[1] + ',' + p[2] + ')'
@@ -106,17 +104,14 @@ export default {
 </script>
 
 <style scoped>
-
 .brightness{
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'brightness\'><feColorMatrix type=\'matrix\' values=\'1.2 0 0 0 0 0 1.2 0 0 0 0 0 1.2 0 0 0 0 0 1.2 0\'/></filter></svg>#brightness"); /* Firefox 3.5+ */
     -webkit-filter:brightness(108.5%); /* Chrome 19+ & Safari 6+ */
 }
-
   @font-face {
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf");
   }
-
   #wrapper{
     display: flex;
     justify-content: center;
@@ -131,7 +126,6 @@ export default {
     width: 100vw;
     background-color: #FF0000;
   }
-
   #gif-backup {
     z-index: 10000000;
   }
@@ -147,7 +141,6 @@ export default {
     font-size: calc(13px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
     max-height: 150px;
   }
-
   .whiteUnderline{
     border-bottom: 2px solid white;
   }

@@ -96,5 +96,4 @@ export default {
     color: #FF0000;
     cursor: pointer;
   }
-
 </style>

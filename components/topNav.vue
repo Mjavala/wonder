@@ -38,15 +38,6 @@ export default {
   },
   mounted () {
     this.sideNavDrawer()
-    if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
-      console.log('upgrade yo shit ffs ffs ffs')
-      const nav = document.getElementById('nav-wrapper')
-      const navItems = document.getElementsByClassName('nav-item')
-      nav.classList.add('iphone-nav-wrap')
-      for (let i = 0; i < navItems.length; i++) {
-        navItems[i].classList.add('nav-item-spacer')
-      }
-    }
   },
   methods: {
     underlineCurrentPage (event) {
@@ -90,30 +81,6 @@ export default {
     scrollToVideos () {
       const elmntToView = document.getElementById('video-wrap')
       elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
-    },
-    iPhoneVersion () {
-      const iHeight = window.screen.height
-      const iWidth = window.screen.width
-
-      if (iWidth === 414 && iHeight === 896) {
-        return 'Xmax-Xr'
-      } else if (iWidth === 375 && iHeight === 812) {
-        return 'X-Xs'
-      } else if (iWidth === 320 && iHeight === 480) {
-        return '4'
-      } else if (iWidth === 375 && iHeight === 667) {
-        return '6'
-      } else if (iWidth === 414 && iHeight === 736) {
-        return '6+'
-      } else if (iWidth === 320 && iHeight === 568) {
-        return '5'
-      } else if (iHeight <= 480) {
-        return '2-3'
-      }
-      return 'none'
-    },
-    isIphone () {
-      return !!navigator.userAgent.match(/iPhone/i)
     }
   }
 }
@@ -156,18 +123,9 @@ export default {
     height: 100vh;
     z-index: 10;
   }
-  .iphone-nav-wrap{ /* iphone 6, 5 fix */
-    position: absolute;
-    top: 0;
-    padding: 1.6525em;
-    text-align: center;
-  }
-  .nav-item-spacer {  /* iphone 6, 5 fix */
-    padding: 0 0.25em;
-  }
   @media only screen and (max-width: 640px) {
     #nav-wrapper {
-      width: 80%;
+      width: 100%;
       align-items: flex-start;
       padding-left: 0;
       padding-right: 1.5625em;
