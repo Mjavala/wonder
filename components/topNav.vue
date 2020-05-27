@@ -87,22 +87,21 @@ export default {
 </script>
 
 <style scoped>
+  @font-face {
+  font-family: "Trash Regular";
+  font-display: swap;
+  src: url("~static/fonts/trash-regular.ttf");
+  }
   a {
-      color: inherit; /* blue colors for links too */
-      text-decoration: inherit; /* no underline */
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
   }
   .exact-active-link {
-      border-bottom: 2px solid white;
+    border-bottom: 2px solid white;
   }
-  .noShow{
-    opacity: 0;
-  }
-    #nav-wrapper{
-    display: -webkit-flex;
+  #nav-wrapper{
     display: flex;
-    -webkit-justify-content: space-around;
     justify-content: space-around;
-    -webkit-align-items: center;
     align-items: center;
     width: 55%;
     color: white;
@@ -114,10 +113,10 @@ export default {
     font-family: "Trash Regular";
   }
   .hamburger {
-      width: 2.5em;
-      cursor: pointer;
-      padding:  1.5625em;
-    }
+    width: 2.5em;
+    cursor: pointer;
+    padding:  1.5625em;
+  }
   #side-nav-wrap{
     position: absolute;
     left: 0;
@@ -128,6 +127,7 @@ export default {
   @media only screen and (max-width: 640px) {
     #nav-wrapper {
       width: 100%;
+      display: flex;
       align-items: flex-start;
       padding-left: 0;
       padding-right: 1.5625em;

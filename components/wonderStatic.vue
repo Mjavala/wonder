@@ -25,9 +25,10 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
   @font-face {
   font-family: "Trash Regular";
+  font-display: swap;
   src: url("~static/fonts/trash-regular.ttf");
   }
   #wrapper{

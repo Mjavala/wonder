@@ -35,36 +35,18 @@ export default {
       title: this.blok.title,
       videoID: this.blok.video,
       control: true,
-      playerReady: false,
       playing: false,
       scrolled: false
     }
   },
   mounted () {
-    // https://stackoverflow.com/questions/47327119/how-to-listen-to-scroll-events-in-vue-nuxtjs
     window.addEventListener('load', () => {
       this.scrolled = true
     })
     setTimeout(() => {
       this.scrolled = true
     }, 1500)
-    this.scrolled = true
-  },
-  methods: {
-    onReady () {
-      this.playerReady = true
     }
-    /*
-    play () {
-      this.$refs.player.play()
-      this.showPlayButton()
-    },
-    pause () {
-      this.$refs.player.pause()
-      this.playing = false
-    }
-    */
-  }
 }
 </script>
 
@@ -85,10 +67,6 @@ export default {
     transform: translate(-50%, -50%);
     color: white;
     font-size: 32px;
-  }
-  #play{
-    cursor: pointer;
-    display: block;
   }
   #video-anchor{
     overflow: auto;

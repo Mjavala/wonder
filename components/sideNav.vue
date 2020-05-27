@@ -44,18 +44,23 @@ export default {
 </script>
 
 <style scoped>
-    a {
-        color: inherit; /* blue colors for links too */
-        text-decoration: inherit; /* no underline */
-    }
-    .whiteText {
-        color: white;
-    }
-    .blackBackground{
-        transition: all 1s ease;
-        background-color: black;
-    }
-    #side-nav{
+  @font-face {
+  font-family: "Trash Regular";
+  font-display: swap;
+  src: url("~static/fonts/trash-regular.ttf");
+  }
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+  .whiteText {
+    color: white;
+  }
+  .blackBackground{
+    transition: all 1s ease;
+    background-color: black;
+  }
+  #side-nav{
     height: 100vh;
     position: absolute;
     left: 0;
