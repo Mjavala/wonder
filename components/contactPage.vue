@@ -301,9 +301,10 @@ export default {
       z-index: 100;
     }
     .iphone56-contact-inner {
-      position: relative;
-      height: 100vh;
-      width: 100vw;
+      position: relative !important;
+      height: 100vh !important;
+      width: 100vw !important;
+      z-index: 100000;
     }
     .iphone56-contact-info {
       position: absolute;
