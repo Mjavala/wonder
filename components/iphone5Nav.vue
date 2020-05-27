@@ -49,7 +49,7 @@ export default {
     justify-content: space-around;
     align-items: center;
     width: 55%;
-    color: white;
+    color: red;
     padding: 1.5625em;
     padding-right: 0;
   }
