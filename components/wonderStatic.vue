@@ -24,7 +24,7 @@ export default {
     naV
   },
   mounted () {
-    if ( this.isIphone() && this.iPhoneVersion() === "6"){
+    if (this.isIphone() && this.iPhoneVersion() === '6') {
       console.log('upgrade yo shit ffs ffs ffs')
       const wonder = document.getElementById('wonder')
       wonder.classList.add('wonder')
@@ -32,35 +32,29 @@ export default {
     }
   },
   methods: {
-    iPhoneVersion() {
-      var iHeight = window.screen.height;
-      var iWidth = window.screen.width;
+    iPhoneVersion () {
+      const iHeight = window.screen.height
+      const iWidth = window.screen.width
 
       if (iWidth === 414 && iHeight === 896) {
-        return "Xmax-Xr";
+        return 'Xmax-Xr'
+      } else if (iWidth === 375 && iHeight === 812) {
+        return 'X-Xs'
+      } else if (iWidth === 320 && iHeight === 480) {
+        return '4'
+      } else if (iWidth === 375 && iHeight === 667) {
+        return '6'
+      } else if (iWidth === 414 && iHeight === 736) {
+        return '6+'
+      } else if (iWidth === 320 && iHeight === 568) {
+        return '5'
+      } else if (iHeight <= 480) {
+        return '2-3'
       }
-      else if (iWidth === 375 && iHeight === 812) {
-        return "X-Xs";
-      }
-      else if (iWidth === 320 && iHeight === 480) {
-        return "4";
-      }
-      else if (iWidth === 375 && iHeight === 667) {
-        return "6";
-      }
-      else if (iWidth === 414 && iHeight === 736) {
-        return "6+";
-      }
-      else if (iWidth === 320 && iHeight === 568) {
-        return "5";
-      }
-      else if (iHeight <= 480) {
-        return "2-3";
-      }
-      return 'none';
+      return 'none'
     },
-    isIphone() {
-      return !!navigator.userAgent.match(/iPhone/i);
+    isIphone () {
+      return !!navigator.userAgent.match(/iPhone/i)
     }
   }
 }
