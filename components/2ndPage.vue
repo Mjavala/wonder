@@ -138,6 +138,20 @@ export default {
     height: 100%;
     margin: 0 3em;
     }
+    @media only screen and (min-width: 768px) and (min-height: 1024px) and (max-height: 1500px) {
+      .birth, .bottom-wrap {
+        left: 0.8em;
+      }
+      .life, .environment-wrap{
+        top: 5em;
+      }
+      .environment {
+        top: 6em;
+      }
+      .bottom {
+        left: 2em;
+      }
+    }
   }
   @media all and (orientation: landscape) {
     #page-wrap {
@@ -230,6 +244,7 @@ export default {
     bottom: -0.5em;
   }
 }
+
 @media all and (-ms-high-contrast:none)
   {
     *::-ms-backdrop, .nav-item {

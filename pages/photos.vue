@@ -69,6 +69,12 @@ export default {
     itemsFiltered (newVal) {
       if (newVal.length === 20) {
         const ver = this.iOSversion()
+        if (ver === undefined) {
+          newVal.forEach((arrayItem) => {
+            this.getImageWeb(arrayItem.id)
+          })
+          return
+        }
         if (ver[0] >= 6 && ver[0] <= 9) {
           const photos = document.getElementsByClassName('photo-container')
           for (let i = 0; i < photos.length; i++) {
@@ -236,6 +242,18 @@ export default {
     }
     #col-4 {
       margin-top: -15em;
+    }
+  }
+  @media only screen and (min-width: 640px) {
+    #photography {
+      width: 50%;
+    }
+    .photo-container:nth-child(even), .photo-container:nth-child(odd){
+      height: 15em;
+    }
+    .image{
+      width: 15em;
+      height: 10em;
     }
   }
   @media all and (-ms-high-contrast:none)
