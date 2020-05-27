@@ -38,11 +38,14 @@ export default {
   },
   mounted () {
     this.sideNavDrawer()
-    if (this.isIphone() && this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5') {
+    if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
       console.log('upgrade yo shit ffs ffs ffs')
       const nav = document.getElementById('nav-wrapper')
+      const navItems = document.getElementsByClassName('nav-item')
       nav.classList.add('iphone-nav-wrap')
-      nav.classList.add('nav-item-spacer')
+      for (let i = 0; i < navItems.length; i++) {
+        navItems[i].classList.add('nav-item-spacer')
+      }
     }
   },
   methods: {

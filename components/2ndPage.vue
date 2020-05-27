@@ -31,6 +31,41 @@ export default {
     window.addEventListener('load', () => {
       this.loaded = true
     })
+    if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
+      console.log('upgrade yo shit ffs ffs ffs')
+      const wrap = document.getElementById('page-wrap')
+      const innerWrap = document.getElementById('inner-wrap')
+      const text = document.getElementById('text-wrap')
+      wrap.classList.add('iphone56Contact-wrap')
+      innerWrap.classList.add('iphone56Contact-inner')
+      text.classList.add('iphone56Contact-text')
+    }
+  },
+  methods: {
+    iPhoneVersion () {
+      const iHeight = window.screen.height
+      const iWidth = window.screen.width
+
+      if (iWidth === 414 && iHeight === 896) {
+        return 'Xmax-Xr'
+      } else if (iWidth === 375 && iHeight === 812) {
+        return 'X-Xs'
+      } else if (iWidth === 320 && iHeight === 480) {
+        return '4'
+      } else if (iWidth === 375 && iHeight === 667) {
+        return '6'
+      } else if (iWidth === 414 && iHeight === 736) {
+        return '6+'
+      } else if (iWidth === 320 && iHeight === 568) {
+        return '5'
+      } else if (iHeight <= 480) {
+        return '2-3'
+      }
+      return 'none'
+    },
+    isIphone () {
+      return !!navigator.userAgent.match(/iPhone/i)
+    }
   }
 }
 </script>
@@ -142,6 +177,15 @@ export default {
     height: 100%;
     margin: 0 3em;
     }
+  }
+  .iphone56Contact-wrap {
+    margin: 2em 0;
+  }
+  .ipphone56Contact-inner {
+    margin: 0 2em;
+  }
+  .iphone56Contact-text {
+    margin-top: 8em;
   }
   @media all and (orientation: landscape) {
     #page-wrap {

@@ -24,7 +24,7 @@ export default {
     naV
   },
   mounted () {
-    if (this.isIphone() && this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5') {
+    if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
       console.log('upgrade yo shit ffs ffs ffs')
       const wonder = document.getElementById('wonder')
       wonder.classList.add('wonder')
