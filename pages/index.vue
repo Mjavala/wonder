@@ -52,9 +52,9 @@ export default {
       }
     })
     window.addEventListener('load', () => {
-      /* eslint prefer-const: "warn" */
-      const vh = window.innerHeight * 0.01
-      this.viewport = vh
+      setTimeout(() => {
+        window.scroll(-1,1)
+      }, 1000)
     })
   }
 }

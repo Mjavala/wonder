@@ -40,8 +40,13 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('load', () => {
+    window.addEventListener('scroll', () => {
       this.scrolled = true
+    })
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        window.scroll(-1,1)
+      }, 1000)
     })
   }
 }
