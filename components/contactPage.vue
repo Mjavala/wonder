@@ -1,7 +1,6 @@
 <template>
   <div id="wrapper2">
     <sideNav v-if="clicked" id="side-nav-contact-wrap" />
-    <div id="center-wrap">
       <div class="innerWrap">
         <svg
           v-if="!clicked"
@@ -64,7 +63,6 @@
         ><rect width="25" height="0.59" fill="red" /></svg>
         <svg id="top-right" xmlns="http://www.w3.org/2000/svg" width="25" height="0.59" viewBox="0 0 25 0.59"><rect width="25" height="0.59" fill="red" /></svg>
       </div>
-    </div>
     <svg
       id="hamburgers"
       xmlns="http://www.w3.org/2000/svg"
@@ -138,6 +136,7 @@ export default {
       const chris = document.getElementById('chris')
       const inq = document.getElementById('other-inq')
       const hello = document.getElementById('hello-wonder')
+      const wrapper = document.getElementById('wrapper2')
       wrap.classList.add('iphone56-contact-inner')
       repr.classList.add('iphone56-contact-inner')
       info.classList.add('iphone56-contact-info')
@@ -147,6 +146,7 @@ export default {
       chris.classList.add('iphone56-contact-svgs')
       inq.classList.add('iphone56-contact-svgs')
       hello.classList.add('iphone56-contact-svgs')
+      wrapper.classList.add('iphone56-contact-nav')
     }
   },
   methods: {
@@ -318,6 +318,9 @@ export default {
       width: auto;
       height: auto;
 
+    }
+    .iphone56-contact-nav{
+      position: unset;
     }
     @media only screen and (min-width: 780px) {
       #hamburgers {
