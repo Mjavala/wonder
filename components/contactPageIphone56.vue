@@ -205,15 +205,16 @@ export default {
         position: relative;
     }
     .innerWrap{
-        height: 30em;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      margin-top: 2em;
+      height: 25em;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     #top-left{
         position: absolute;
@@ -298,7 +299,7 @@ export default {
     }
     .iphone56-contact-info {
       position: absolute;
-      top: 12em;
+      top: 8em;
       left: 4em;
       width: auto !important;
     }

@@ -75,7 +75,7 @@ export default {
     margin-left: 2.5em;
   }
   .nav-item-spacer {  /* iphone 6, 5 fix */
-    padding: 0 0.5em;
+    padding: 0 0.3em;
   }
   @media only screen and (max-width: 640px) {
     #nav-wrapper {
