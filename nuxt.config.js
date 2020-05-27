@@ -61,13 +61,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    postcss: {
-      preset: {
-        autoprefixer: {
-          flexbox: true
-        }
-      }
-    },
     extend (config, ctx) {
     }
   },
