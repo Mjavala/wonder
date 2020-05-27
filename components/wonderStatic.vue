@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="css">
   @font-face {
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf");
