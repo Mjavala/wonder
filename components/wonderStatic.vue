@@ -70,4 +70,8 @@ export default {
         opacity: 1;
     }
   }
+  @media all and (-ms-high-contrast:none)
+    {
+    *::-ms-backdrop, #wrapper { background-color: white; } /* IE11 */
+    }
 </style>
