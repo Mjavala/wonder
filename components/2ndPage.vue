@@ -231,4 +231,14 @@ export default {
     bottom: -0.5em;
   }
 }
+@media all and (-ms-high-contrast:none)
+  {
+    *::-ms-backdrop, .nav-item { 
+      font-family: "Trash Regular"; 
+    } /* IE11 */
+    *::-ms-backdrop, #text-wrap { 
+      display: flex; 
+    } /* IE11 */
+  }
+
 </style>
