@@ -43,11 +43,6 @@ export default {
     window.addEventListener('scroll', () => {
       this.scrolled = true
     })
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        window.scroll(-1,1)
-      }, 1000)
-    })
   }
 }
 </script>
