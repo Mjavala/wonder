@@ -52,7 +52,7 @@ export default {
       }
     })
     setTimeout(() => {
-      window.scroll(-1,1)
+      window.scroll(-1, 1)
     }, 1000)
   }
 }
