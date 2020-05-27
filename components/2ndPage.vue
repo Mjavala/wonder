@@ -181,7 +181,7 @@ export default {
   .iphone56Contact-wrap {
     margin: 2em 0 !important;
   }
-  .ipphone56Contact-inner {
+  .iphone56Contact-inner {
     width: 85% !important;
     margin: 0 2em !important;
   }
