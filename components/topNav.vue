@@ -161,14 +161,13 @@ export default {
     top: 0;
     padding: 1.6525em;
     text-align: center;
-    margin-left: 2.5em;
   }
   .nav-item-spacer {  /* iphone 6, 5 fix */
     padding: 0 0.25em;
   }
   @media only screen and (max-width: 640px) {
     #nav-wrapper {
-      width: 100%;
+      width: 80%;
       align-items: flex-start;
       padding-left: 0;
       padding-right: 1.5625em;
