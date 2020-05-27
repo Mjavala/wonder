@@ -43,10 +43,7 @@ export default {
     window.addEventListener('load', () => {
       this.scrolled = true
     })
-    setTimeout(() => {
-      this.scrolled = true
-    }, 1500)
-    }
+  }
 }
 </script>
 
