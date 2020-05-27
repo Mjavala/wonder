@@ -130,6 +130,7 @@ export default {
     */
     if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
       this.iphone5 = true
+      /*
       const wrap = document.getElementsByClassName('innerWrap')[0]
       const info = document.getElementsByClassName('contact-info-wrap')[0]
       const repr = document.getElementById('repr')
@@ -149,6 +150,7 @@ export default {
       inq.classList.add('iphone56-contact-svgs')
       hello.classList.add('iphone56-contact-svgs')
       wrapper.classList.add('iphone56-contact-nav')
+      */
     }
   },
   methods: {
