@@ -26,11 +26,6 @@ export default {
 </script>
 
 <style>
-  @font-face {
-  font-family: "Trash Regular";
-  src: url("~static/fonts/trash-regular.ttf");
-  font-display: swap;
-  }
   #wrapper{
     display: flex;
     justify-content: center;
@@ -70,8 +65,4 @@ export default {
         opacity: 1;
     }
   }
-  @media all and (-ms-high-contrast:none)
-    {
-    *::-ms-backdrop, #wrapper { background-color: white; } /* IE11 */
-    }
 </style>

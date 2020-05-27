@@ -148,4 +148,10 @@ export default {
       width: 40%;
     }
   }
+  @media all and (-ms-high-contrast:none)
+  {
+    *::-ms-backdrop, .nav-item { 
+      font-family: "Trash Regular"; 
+    } /* IE11 */
+  }
 </style>
