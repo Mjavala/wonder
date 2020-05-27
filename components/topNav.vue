@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style scoped>
-  @font-face {
+  @font-face { /* need eot for IE 11 */
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf");
   font-display: swap;
@@ -150,6 +150,9 @@ export default {
   }
   @media all and (-ms-high-contrast:none)
   {
+    *::-ms-backdrop, .nav-item { 
+      font-family: "Trash Regular"; 
+    } /* IE11 */
     *::-ms-backdrop, .nav-item { 
       font-family: "Trash Regular"; 
     } /* IE11 */

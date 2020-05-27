@@ -239,6 +239,28 @@ export default {
     *::-ms-backdrop, #text-wrap { 
       display: flex; 
     } /* IE11 */
+    *::-ms-backdrop, .class { 
+      left: 13.5em; 
+      bottom: 50%;
+    } /* IE11 */
+    *::-ms-backdrop, .bottom-wrap { 
+      left: 13.5em; 
+      bottom: 50%;
+    } /* IE11 */
+    *::-ms-backdrop, .bottom { 
+      left: 14.75em; 
+      bottom: 50%;
+    } /* IE11 */
+    *::-ms-backdrop, .life { 
+      bottom: 0.25%;
+    } /* IE11 */
+    *::-ms-backdrop, .environment-wrap { 
+      bottom: 0.25%;
+      width: 1.32;
+    } /* IE11 */
+    *::-ms-backdrop, .environment { 
+      bottom: 0.25em;
+    } /* IE11 */
   }
 
 </style>
