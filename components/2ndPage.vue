@@ -37,7 +37,7 @@ export default {
   @font-face { /* need eot for IE 11 */
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf") format('truetype'),
-    url("~static/fonts/trash-regular.oet#iefix") format('embedded-opentype');
+    url("~static/fonts/trash-regular.eot#iefix") format('embedded-opentype');
   font-display: swap;
   }
   @media all and (orientation: portrait) {
