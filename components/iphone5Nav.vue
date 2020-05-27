@@ -1,5 +1,5 @@
 <template>
-  <nav id="nav">
+  <nav id="navip5">
     <div id="nav-wrapper">
       <nuxt-link to="/" class="nav-item">
         Film
@@ -33,9 +33,18 @@ export default {
 </script>
 
 <style scoped>
+  @font-face {
+  font-family: "Trash Regular";
+  src: url("~static/fonts/trash-regular.ttf");
+  }
   a {
       color: inherit; /* blue colors for links too */
       text-decoration: inherit; /* no underline */
+  }
+  #navip5{
+      text-align: right;
+      padding-right: 1em;
+
   }
   .exact-active-link {
       border-bottom: 2px solid white;
@@ -54,6 +63,7 @@ export default {
     padding-right: 0;
   }
   .nav-item{
+    padding: 0 1em;
     cursor: pointer;
     font-family: "Trash Regular";
   }
