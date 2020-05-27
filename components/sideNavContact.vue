@@ -41,6 +41,7 @@ export default {
   @font-face {
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf");
+  src: url("~static/fonts/trash-regular.oet");
   font-display: swap;
   }
   a {
