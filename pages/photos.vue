@@ -171,8 +171,8 @@ export default {
     display: -webkit-flex;
     justify-content: center;
     -webkit-justify-content: center;
-    -webkit-align-items: flex-end;
     align-items: flex-end;
+    -webkit-align-items: flex-end;
     width: 100%;
     height: 10em;
   }
@@ -185,8 +185,8 @@ export default {
     display: -webkit-flex;
     justify-content: center;
     -webkit-justify-content: center;
-    -webkit-align-items: flex-start;
     align-items: flex-start;
+    -webkit-align-items: flex-start;
     width: 100%;
     height: 12.5em;
   }
