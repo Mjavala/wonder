@@ -98,9 +98,11 @@ export default {
     opacity: 0;
   }
     #nav-wrapper{
+    display: -webkit-flex;
     display: flex;
-    flex-direction: row;
+    -webkit-justify-content: space-around;
     justify-content: space-around;
+    -webkit-align-items: center;
     align-items: center;
     width: 55%;
     color: white;
