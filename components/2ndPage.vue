@@ -179,13 +179,13 @@ export default {
     }
   }
   .iphone56Contact-wrap {
-    margin: 2em 0;
+    margin: 2em 0 !important;
   }
   .ipphone56Contact-inner {
-    margin: 0 2em;
+    margin: 0 2em !important;
   }
   .iphone56Contact-text {
-    margin-top: 8em;
+    margin-top: 8em !important;
   }
   @media all and (orientation: landscape) {
     #page-wrap {
