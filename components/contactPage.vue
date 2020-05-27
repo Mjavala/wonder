@@ -120,6 +120,30 @@ export default {
         }, 1000)
       }
     })
+    document.addEventListener('load', () => {
+      if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
+        this.iphone5 = true
+        const wrap = document.getElementsByClassName('innerWrap')[0]
+        const info = document.getElementsByClassName('contact-info-wrap')[0]
+        const repr = document.getElementById('repr')
+        const tomorrow = document.getElementById('tomorrow')
+        const book = document.getElementById('booking')
+        const chris = document.getElementById('chris')
+        const inq = document.getElementById('other-inq')
+        const hello = document.getElementById('hello-wonder')
+        const wrapper = document.getElementById('wrapper2')
+        wrap.classList.add('iphone56-contact-inner')
+        repr.classList.add('iphone56-contact-inner')
+        info.classList.add('iphone56-contact-info')
+        repr.classList.add('iphone56-contact-svgs')
+        tomorrow.classList.add('iphone56-contact-svgs')
+        book.classList.add('iphone56-contact-svgs')
+        chris.classList.add('iphone56-contact-svgs')
+        inq.classList.add('iphone56-contact-svgs')
+        hello.classList.add('iphone56-contact-svgs')
+        wrapper.classList.add('iphone56-contact-nav')
+      }
+    })
     /* --- does not work - when any touch move is made, everything lights up black
     document.addEventListener('touchstart', (event) => {
       const paths = event.target.querySelectorAll('path')
@@ -128,30 +152,6 @@ export default {
       })
     })
     */
-    if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
-      this.iphone5 = true
-      /*
-      const wrap = document.getElementsByClassName('innerWrap')[0]
-      const info = document.getElementsByClassName('contact-info-wrap')[0]
-      const repr = document.getElementById('repr')
-      const tomorrow = document.getElementById('tomorrow')
-      const book = document.getElementById('booking')
-      const chris = document.getElementById('chris')
-      const inq = document.getElementById('other-inq')
-      const hello = document.getElementById('hello-wonder')
-      const wrapper = document.getElementById('wrapper2')
-      wrap.classList.add('iphone56-contact-inner')
-      repr.classList.add('iphone56-contact-inner')
-      info.classList.add('iphone56-contact-info')
-      repr.classList.add('iphone56-contact-svgs')
-      tomorrow.classList.add('iphone56-contact-svgs')
-      book.classList.add('iphone56-contact-svgs')
-      chris.classList.add('iphone56-contact-svgs')
-      inq.classList.add('iphone56-contact-svgs')
-      hello.classList.add('iphone56-contact-svgs')
-      wrapper.classList.add('iphone56-contact-nav')
-      */
-    }
   },
   methods: {
     scrollToVideos () {
