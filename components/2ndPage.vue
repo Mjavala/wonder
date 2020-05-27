@@ -239,17 +239,17 @@ export default {
     *::-ms-backdrop, #text-wrap { 
       display: flex; 
     } /* IE11 */
-    *::-ms-backdrop, .class { 
+    *::-ms-backdrop, .birth { 
       left: 13.5em; 
-      bottom: 50%;
+      top: -50%;
     } /* IE11 */
     *::-ms-backdrop, .bottom-wrap { 
       left: 13.5em; 
-      bottom: 50%;
+      top: 50%;
     } /* IE11 */
     *::-ms-backdrop, .bottom { 
       left: 14.75em; 
-      bottom: 50%;
+      top: 50%;
     } /* IE11 */
     *::-ms-backdrop, .life { 
       bottom: 0.25%;
