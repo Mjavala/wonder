@@ -130,7 +130,7 @@ export default {
     */
     if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
       console.log('upgrade yo shit ffs ffs ffs')
-      const wrap = document.getElementById('innerWrap')
+      const wrap = document.getElementsByClassName('innerWrap')[0]
       const info = document.getElementById('contact-info-wrap')
       const repr = document.getElementById('repr')
       const tomorrow = document.getElementById('tomorrow')
@@ -301,10 +301,9 @@ export default {
       z-index: 100;
     }
     .iphone56-contact-inner {
-      position: relative !important;
-      height: 100vh !important;
-      width: 100vw !important;
-      z-index: 100000;
+      position: relative;
+      height: 100vh;
+      width: 100vw;
     }
     .iphone56-contact-info {
       position: absolute;
