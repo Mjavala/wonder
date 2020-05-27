@@ -2,7 +2,8 @@
   <div id="wrapper2">
     <sideNav v-if="clicked" id="side-nav-contact-wrap" />
     <iphone5Nav v-if="iphone5" />
-    <div class="innerWrap">
+    <contactForIphone v-if="iphone5" />
+    <div v-if="!iphone5" class="innerWrap">
       <svg
         id="contact"
         xmlns="http://www.w3.org/2000/svg"
@@ -79,11 +80,13 @@
 <script>
 import sideNav from '~/components/sideNavContact'
 import iphone5Nav from '~/components/iphone5Nav'
+import contactForIphone from '~/components/contactPageIphone56'
 
 export default {
   components: {
     sideNav,
-    iphone5Nav
+    iphone5Nav,
+    contactForIphone
   },
   props: ['blok'],
   data () {
