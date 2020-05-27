@@ -120,7 +120,7 @@ export default {
         }, 1000)
       }
     })
-    document.addEventListener('load', () => {
+    window.addEventListener('load', () => {
       if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
         this.iphone5 = true
         const wrap = document.getElementsByClassName('innerWrap')[0]
