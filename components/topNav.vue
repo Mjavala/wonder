@@ -89,8 +89,8 @@ export default {
 <style scoped>
   @font-face { /* need eot for IE 11 */
   font-family: "Trash Regular";
-  src: url("~static/fonts/trash-regular.ttf");
-  src: url("~static/fonts/trash-regular.oet");
+  src: url("~static/fonts/trash-regular.ttf") format('truetype'),
+    url("~static/fonts/trash-regular.oet#iefix") format('embedded-opentype');
   font-display: swap;
   }
   a {
@@ -151,11 +151,11 @@ export default {
   }
   @media all and (-ms-high-contrast:none)
   {
-    *::-ms-backdrop, .nav-item { 
-      font-family: "Trash Regular"; 
+    *::-ms-backdrop, .nav-item {
+      font-family: "Trash Regular";
     } /* IE11 */
-    *::-ms-backdrop, .nav-item { 
-      font-family: "Trash Regular"; 
+    *::-ms-backdrop, .nav-item {
+      font-family: "Trash Regular";
     } /* IE11 */
   }
 </style>

@@ -67,7 +67,7 @@ export default {
   }
   @media all and (-ms-high-contrast:none)
   {
-    *::-ms-backdrop, #home-wrap { 
+    *::-ms-backdrop, #home-wrap {
       overflow: hidden
     } /* IE11 */
   }

@@ -34,12 +34,10 @@ export default {
 </script>
 
 <style scoped>
-  /* Mobile Styles 320w 480h - portrait */
-  /* https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions */
-  @font-face {
-  font-family: "Trash Regular", "Open Sans";
-  src: url("~static/fonts/trash-regular.ttf");
-  src: url("~static/fonts/trash-regular.oet");
+  @font-face { /* need eot for IE 11 */
+  font-family: "Trash Regular";
+  src: url("~static/fonts/trash-regular.ttf") format('truetype'),
+    url("~static/fonts/trash-regular.oet#iefix") format('embedded-opentype');
   font-display: swap;
   }
   @media all and (orientation: portrait) {
@@ -234,32 +232,32 @@ export default {
 }
 @media all and (-ms-high-contrast:none)
   {
-    *::-ms-backdrop, .nav-item { 
-      font-family: "Trash Regular"; 
+    *::-ms-backdrop, .nav-item {
+      font-family: "Trash Regular";
     } /* IE11 */
-    *::-ms-backdrop, #text-wrap { 
-      display: flex; 
+    *::-ms-backdrop, #text-wrap {
+      display: flex;
     } /* IE11 */
-    *::-ms-backdrop, .birth { 
-      left: 13.5em; 
+    *::-ms-backdrop, .birth {
+      left: 13.5em;
       top: -50%;
     } /* IE11 */
-    *::-ms-backdrop, .bottom-wrap { 
-      left: 13.5em; 
+    *::-ms-backdrop, .bottom-wrap {
+      left: 13.5em;
       top: 50%;
     } /* IE11 */
-    *::-ms-backdrop, .bottom { 
-      left: 14.75em; 
+    *::-ms-backdrop, .bottom {
+      left: 14.75em;
       top: 50%;
     } /* IE11 */
-    *::-ms-backdrop, .life { 
+    *::-ms-backdrop, .life {
       bottom: 0.25%;
     } /* IE11 */
-    *::-ms-backdrop, .environment-wrap { 
+    *::-ms-backdrop, .environment-wrap {
       bottom: 0.25%;
       width: 1.32;
     } /* IE11 */
-    *::-ms-backdrop, .environment { 
+    *::-ms-backdrop, .environment {
       bottom: 0.25em;
     } /* IE11 */
   }
