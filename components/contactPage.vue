@@ -2,7 +2,7 @@
   <div id="wrapper2">
     <sideNav v-if="clicked" id="side-nav-contact-wrap" />
     <div id="center-wrap">
-      <div id="innerWrap">
+      <div class="innerWrap">
         <svg
           v-if="!clicked"
           id="contact"
@@ -213,7 +213,7 @@ export default {
         height: 100vh;
         position: relative;
     }
-    #innerWrap{
+    .innerWrap{
         height: 30em;
         position: absolute;
         left: 50%;
