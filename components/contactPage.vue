@@ -302,13 +302,15 @@ export default {
     }
     .iphone56-contact-inner {
       position: relative;
+      left: 0;
       height: 100vh;
       width: 100vw;
     }
     .iphone56-contact-info {
       position: absolute;
       top: 12em;
-      left: 4em
+      left: 4em;
+      width: auto;
     }
     .iphone56-contact-svgs {
       display: block;
