@@ -145,14 +145,15 @@ export default {
 <style>
   /* mobile styles */
   #photo-wrap-mobile{
-    display: flex;
+    display: flex;    /* iphone 6 fix */
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -moz-flex;
     display: -webkit-flex;
-    display: flex;    /* iphone 6 fix */
+    -webkit-box-flex: 1;
     flex: 1;          /* iphone 6 fix */
+    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;  /* iphone 6 fix */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
