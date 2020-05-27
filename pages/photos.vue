@@ -151,10 +151,10 @@ export default {
     display: -ms-flexbox;
     display: -moz-flex;
     display: -webkit-flex;
-    -webkit-box-flex: 1;
+    -webkit-flex: 1;
     flex: 1;          /* iphone 6 fix */
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;  /* iphone 6 fix */
+    -webkit-flex-wrap: wrap;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 1.5625em;
@@ -171,6 +171,7 @@ export default {
     display: -webkit-flex;
     justify-content: center;
     -webkit-justify-content: center;
+    -webkit-align-items: flex-end;
     align-items: flex-end;
     width: 100%;
     height: 10em;
@@ -184,6 +185,7 @@ export default {
     display: -webkit-flex;
     justify-content: center;
     -webkit-justify-content: center;
+    -webkit-align-items: flex-start;
     align-items: flex-start;
     width: 100%;
     height: 12.5em;
