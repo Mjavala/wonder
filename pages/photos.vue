@@ -238,4 +238,10 @@ export default {
       margin-top: -15em;
     }
   }
+  @media all and (-ms-high-contrast:none)
+  {
+    *::-ms-backdrop, #home-wrap {
+      overflow: hidden
+    } /* IE11 */
+  }
 </style>
