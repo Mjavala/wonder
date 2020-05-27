@@ -1,7 +1,6 @@
 <template>
   <div id="wrapper2">
     <sideNav v-if="clicked" id="side-nav-contact-wrap" />
-    <contactForIphone v-if="iphone5" />
     <div v-if="!iphone5" class="innerWrap">
       <svg
         id="contact"
@@ -78,12 +77,10 @@
 
 <script>
 import sideNav from '~/components/sideNavContact'
-import contactForIphone from '~/components/contactPageIphone56'
 
 export default {
   components: {
-    sideNav,
-    contactForIphone
+    sideNav
   },
   props: ['blok'],
   data () {
@@ -125,9 +122,6 @@ export default {
         }, 1000)
       }
     })
-    if (this.isIphone() && (this.iPhoneVersion() === '6' || this.iPhoneVersion() === '5')) {
-      this.iphone5 = true
-    }
     /* --- does not work - when any touch move is made, everything lights up black
     document.addEventListener('touchstart', (event) => {
       const paths = event.target.querySelectorAll('path')
