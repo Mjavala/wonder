@@ -145,6 +145,12 @@ export default {
 <style>
   /* mobile styles */
   #photo-wrap-mobile{
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
     display: flex;    /* iphone 6 fix */
     flex: 1;          /* iphone 6 fix */
     flex-wrap: wrap;  /* iphone 6 fix */
