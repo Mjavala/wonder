@@ -50,10 +50,12 @@ export default {
         })
       }
     })
-    window.addEventListener('load', () => {
-      const vh = window.innerHeight
-      const root = document.getElementById('wrapper')
-      root.style.height = `${vh}px`
+    window.addEventListener('orientationchange', function () {
+      const originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display')
+      document.body.style.display = 'none'
+      setTimeout(function () {
+        document.body.style.display = originalBodyStyle
+      }, 10)
     })
   }
 }

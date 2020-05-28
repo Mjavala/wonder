@@ -54,6 +54,13 @@ export default {
     setTimeout(() => {
       window.scroll(-1, 1)
     }, 1000)
+    window.addEventListener('orientationchange', function () {
+      const originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display')
+      document.body.style.display = 'none'
+      setTimeout(function () {
+        document.body.style.display = originalBodyStyle
+      }, 10)
+    })
   }
 }
 </script>
