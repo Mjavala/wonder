@@ -171,6 +171,7 @@ export default {
         position: relative;
     }
     #innerWrap{
+        height: 35em;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -182,7 +183,7 @@ export default {
     }
     #top-left{
         position: absolute;
-        bottom: 100%;
+        top: 0;
         left: 0;
     }
     #contact-info-wrap{
@@ -207,12 +208,12 @@ export default {
     }
     #bottom-right{
         position: absolute;
-        bottom: 0;
+        top: 100%;
         right: 0;
     }
     #bottom-left{
         position: absolute;
-        bottom: 0;
+        top: 100%;
         left: 0;
     }
     #insta {
