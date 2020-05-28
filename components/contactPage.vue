@@ -171,7 +171,7 @@ export default {
         position: relative;
     }
     #innerWrap{
-        height: 30em;
+        height: 25em;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -261,14 +261,6 @@ export default {
       #inner-wrap{
         height: 25em;
         top: 60%;
-      }
-    }
-    @media only screen and (min-width: 780px) {
-      #hamburgers {
-        padding: 2.5em;
-      }
-      #contact-info-wrap {
-        height: 70%;
       }
     }
 </style>
