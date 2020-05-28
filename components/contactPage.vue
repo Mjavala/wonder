@@ -171,7 +171,6 @@ export default {
         position: relative;
     }
     #innerWrap{
-        height: 25em;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -256,6 +255,33 @@ export default {
     #hello-wrap {
       position: relative;
       z-index: 100;
+    }
+    @media all and (orientation: portrait) and (max-width: 767px) {
+      #innerWrap {
+        height: 25em;
+      }
+      #contact, #location {
+        top: 11em;
+      }
+    }
+    @media all and (orientation: landscape) and (max-width: 767px) {
+      #innerWrap {
+        margin-top: 1em;
+        height: 12em;
+      }
+      #location {
+        top: 5em;
+      }
+      #contact {
+        top: 4em;
+      }
+      #insta {
+        padding: 0 1.6525em;
+        padding-bottom: 0.5em;
+      }
+      #contact-info-wrap {
+        height: 9em;
+      }
     }
     @media only screen and (max-width: 780px) {
       #inner-wrap{
