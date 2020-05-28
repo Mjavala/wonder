@@ -1,18 +1,23 @@
 <template>
   <div id="home-wrap">
-    <wonderStatic />
-    <section>
-      <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
-    </section>
+    <loader v-if="!fullyLoaded" />
+    <div v-show="fullyLoaded">
+      <wonderStatic />
+      <section>
+        <component :is="story.content.component" v-if="story.content.component" :key="story.content._uid" :blok="story.content" />
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
 import wonderStatic from '~/components/wonderStatic'
+import loader from '~/components/loader'
 
 export default {
   components: {
-    wonderStatic
+    wonderStatic,
+    loader
   },
   asyncData (context) {
     // Load the JSON from the API
@@ -33,7 +38,8 @@ export default {
   transition: 'tweakOpacity',
   data () {
     return {
-      story: { content: {} }
+      story: { content: {} },
+      fullyLoaded: false
     }
   },
   mounted () {
@@ -53,7 +59,10 @@ export default {
     })
     setTimeout(() => {
       window.scroll(-1, 1)
-    }, 1000)
+    }, 250)
+    setTimeout(() => {
+      this.fullyLoaded = true
+    }, 500)
     window.addEventListener('orientationchange', function () {
       const originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display')
       document.body.style.display = 'none'

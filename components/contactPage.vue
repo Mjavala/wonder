@@ -103,21 +103,27 @@ export default {
       if (target === 'side-nav-contact-wrap') {
         this.clicked = false
       }
+      if (target === 'film2') {
+        setTimeout(() => {
+          this.clicked = false
+          this.scrollToVideos()
+        }, 1000)
+      }
     })
     // --- Mobile support --- //
     document.addEventListener('touchstart', (e) => {
       const target = e.target.getAttribute('id')
       const targetClass = e.target.getAttribute('class')
       if (targetClass === 'side-nav-item whiteText') {
-        setTimeout(() => { this.showSideMenu = false }, 1000)
+        setTimeout(() => { this.clicked = false }, 1000)
       }
       if (target === 'side-nav-contact-wrap') {
         this.clicked = false
       }
-      if (target === 'film') {
+      if (target === 'film2') {
         setTimeout(() => {
           this.scrollToVideos()
-          this.showSideMenu = false
+          this.clicked = false
         }, 1000)
       }
     })
@@ -167,25 +173,25 @@ export default {
 </script>
 
 <style scoped>
-    #wrapper2{
-        height: 100vh;
-        height: -webkit-fill-available;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #innerWrap{
-        height: 32.5em;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  #wrapper2{
+      height: 100vh;
+      height: -webkit-fill-available;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  #innerWrap{
+      height: 32.5em;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
     #inner-wrap-slits{
       position: absolute;
       top: 0;
