@@ -176,7 +176,7 @@ export default {
         align-items: center;
     }
     #innerWrap{
-        height: 35em;
+        height: 32.5em;
         position: absolute;
         left: 50%;
         top: 50%;
