@@ -257,6 +257,12 @@ export default {
       position: relative;
       z-index: 100;
     }
+    @media only screen and (max-width: 780px) {
+      #inner-wrap{
+        height: 25em;
+        top: 60%;
+      }
+    }
     @media only screen and (min-width: 780px) {
       #hamburgers {
         padding: 2.5em;
