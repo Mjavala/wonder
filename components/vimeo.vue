@@ -18,7 +18,6 @@
             :video-id="videoID"
             :options="{responsive: true}"
             :controls="control"
-            @ready="onReady"
           />
         </no-ssr>
       </div>

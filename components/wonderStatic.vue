@@ -32,8 +32,8 @@ export default {
     align-items: center;
     background-color: #FF0000;
     position: relative;
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
+    height: -webkit-fill-available;
   }
   #navigation{
     z-index: 10;
@@ -48,18 +48,19 @@ export default {
     width: 100vw;
     font-size: calc(13px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
     max-height: 150px;
+    max-width: 1154px;
   }
   .enter{
     animation: 1s enter ease forwards;
   }
-  @media only screen and (min-width: 320px) and (max-width: 779px) {
+  @media only screen and (min-width: 320px) {
     #wonder{
       padding: 0 1.6525em;
     }
   }
   @media only screen and (min-width: 780px) {
     #wonder {
-      padding: 0 5em;
+      padding: 0 1.6525em;
     }
   }
   @keyframes enter {

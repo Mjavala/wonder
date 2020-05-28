@@ -27,10 +27,38 @@
 
 <script>
 export default {
+  mounted () {
+    this.sideNavDrawer()
+  },
   methods: {
     whiteNavStyling (event) {
       event.target.classList.add('blackText')
       event.target.parentElement.classList.add('whiteBackground')
+    },
+    sideNavDrawer () {
+      document.addEventListener('click', (e) => {
+        const target = e.target.getAttribute('id')
+        if (target === 'film2') {
+          setTimeout(() => {
+            this.scrollToVideos()
+            this.showSideMenu = false
+          }, 1000)
+        }
+      })
+      // --- Mobile support --- //
+      document.addEventListener('touchstart', (e) => {
+        const target = e.target.getAttribute('id')
+        if (target === 'film2') {
+          setTimeout(() => {
+            this.scrollToVideos()
+            this.showSideMenu = false
+          }, 1000)
+        }
+      })
+    },
+    scrollToVideos () {
+      const elmntToView = document.getElementById('video-wrap')
+      elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
   }
 }

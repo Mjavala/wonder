@@ -9,7 +9,7 @@
         <img class="image" :src="item">
       </div>
     </div>
-    <div id="photo-wrap-web">
+    <div v-if="!mobile" id="photo-wrap-web">
       <div id="col-1" />
       <div id="col-2" />
       <div id="col-3" />
@@ -37,7 +37,9 @@ export default {
       user_id: '17841435616161032',
       items: [],
       mobile: false,
-      itemsWeb: []
+      itemsWeb: [],
+      tokenDelta: '',
+      token: ''
     }
   },
   computed: {
@@ -82,29 +84,40 @@ export default {
           }
         }
       }
+    },
+    tokenDelta (newVal) {
+      console.log(newVal)
+      if (newVal >= 864000) { // 10 days - 864000
+        this.getNewTokenAndSet()
+      }
     }
   },
   async mounted () {
+    this.token = localStorage.getItem('token')
+    if (this.token === null) {
+      this.token = 'IGQVJXNlNBaVE4d05SZA2FRTEFwVElMcEIxODZAYVFNHMGNXVG12OGZAmaHAwRm52UFE3Ml8yc1NlNFB2WTlramszeGp1aXdBZAkhLVkNlemdIaGxrNGo5eU5mcnc2T2VhNld6eVRsXzd5dXM5dHo1ZADFleAZDZD'
+    }
     window.addEventListener('load', () => {
       const vh = window.innerHeight
       const root = document.getElementById('wrapper')
       root.style.height = `${vh}px`
     })
     try {
-      const response = await axios.get('https://graph.instagram.com/17841435616161032?fields=media&access_token=IGQVJXaVhNS0MxTTNialJ2eFgyR0ZAzT2w5MXhMNmNDZAFNDVE1fN2RucmlSTG04WlJSbjA1VXFDc2twUEg2ampvQTJoNnJKN0RybmNIZA25KYTZAVenBDVnlXMXp3OVZAZAWHhyaWZAzckRNbTRvQW9YVG5VXwZDZD')
+      const response = await axios.get(`https://graph.instagram.com/17841435616161032?fields=media&access_token=${this.token}`)
       this.posts = response.data.media.data
     } catch (e) {
       console.log(e)
     }
+    this.storePassThrough()
   },
   transition: 'tweakOpacity',
   methods: {
     async getImage (id) {
-      const response = await axios.get(`https://graph.instagram.com/${id}?fields=media_url&access_token=IGQVJXaVhNS0MxTTNialJ2eFgyR0ZAzT2w5MXhMNmNDZAFNDVE1fN2RucmlSTG04WlJSbjA1VXFDc2twUEg2ampvQTJoNnJKN0RybmNIZA25KYTZAVenBDVnlXMXp3OVZAZAWHhyaWZAzckRNbTRvQW9YVG5VXwZDZD`)
+      const response = await axios.get(`https://graph.instagram.com/${id}?fields=media_url&access_token=${this.token}`)
       this.items.push(response.data.media_url)
     },
     async getImageWeb (id) {
-      const response = await axios.get(`https://graph.instagram.com/${id}?fields=media_url&access_token=IGQVJXaVhNS0MxTTNialJ2eFgyR0ZAzT2w5MXhMNmNDZAFNDVE1fN2RucmlSTG04WlJSbjA1VXFDc2twUEg2ampvQTJoNnJKN0RybmNIZA25KYTZAVenBDVnlXMXp3OVZAZAWHhyaWZAzckRNbTRvQW9YVG5VXwZDZD`)
+      const response = await axios.get(`https://graph.instagram.com/${id}?fields=media_url&access_token=${this.token}`)
       this.itemsWeb.push(response.data.media_url)
     },
     distributeWeb (arr) {
@@ -143,6 +156,35 @@ export default {
         const v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/)
         return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)]
       }
+    },
+    storePassThrough () {
+      const date = localStorage.getItem('date')
+      if (date === null) {
+        this.localStore()
+        return
+      }
+      this.checkTokenDate()
+    },
+    localStore () {
+      if (process.browser) {
+        const timeNow = new Date()
+        localStorage.setItem('date', timeNow)
+        localStorage.setItem('token', this.token)
+      }
+    },
+    checkTokenDate () {
+      const date = localStorage.getItem('date')
+      const dateParsed = Date.parse(date)
+      const timeNow = new Date()
+      const tokenTimeDiff = (timeNow - dateParsed) / 1000 // in s
+      this.tokenDelta = tokenTimeDiff
+    },
+    async getNewTokenAndSet () {
+      const response = await axios.get(`https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${this.token}`)
+      this.token = response.data.access_token
+      const timeNow = new Date()
+      localStorage.setItem('token', this.token)
+      localStorage.setItem('date', timeNow)
     }
   }
 }
@@ -204,7 +246,7 @@ export default {
     right: 0;
   }
   .tweakOpacity-enter-active, .tweakOpacity-leave-active {
-    transition: opacity .55s ease-in-out;
+    transition: opacity .45s ease-in-out;
   }
   .tweakOpacity-enter, .tweakOpacity-leave-active {
     opacity: 0;

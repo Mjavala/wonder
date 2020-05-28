@@ -107,7 +107,6 @@ export default {
     width: 55%;
     color: white;
     padding: 1.5625em;
-    padding-right: 0;
   }
   .nav-item{
     cursor: pointer;
@@ -138,15 +137,21 @@ export default {
       width: 3em;
     }
   }
-  @media only screen and (min-width: 780px) {
+  @media only screen and (min-width: 768px) {
     .hamburger {
-      width: 3.5em;
       height: 1.25em;
       padding-right: 12.5em;
-      padding-left: 0;
     }
     #nav-wrapper {
       width: 40%;
+    }
+  }
+  @media only screen and (min-width: 1154px) {
+    .hamburger {
+      padding-left: 0;
+    }
+    #nav-wrapper {
+      padding-right: 0;
     }
   }
   @media all and (-ms-high-contrast:none)

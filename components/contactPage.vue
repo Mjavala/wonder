@@ -167,6 +167,7 @@ export default {
 <style scoped>
     #wrapper2{
         height: 100vh;
+        height: -webkit-fill-available;
         position: relative;
     }
     #innerWrap{
@@ -259,6 +260,9 @@ export default {
     @media only screen and (min-width: 780px) {
       #hamburgers {
         padding: 2.5em;
+      }
+      #contact-info-wrap {
+        height: 70%;
       }
     }
 </style>

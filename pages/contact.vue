@@ -50,11 +50,8 @@ export default {
 </script>
 
 <style>
-  #contact-wrap{
-    height: --vh;
-  }
   .tweakOpacity-enter-active, .tweakOpacity-leave-active {
-    transition: opacity .55s ease-in-out;
+    transition: opacity .45s ease-in-out;
   }
   .tweakOpacity-enter, .tweakOpacity-leave-active {
     opacity: 0;

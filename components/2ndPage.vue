@@ -45,6 +45,7 @@ export default {
     background-color: #ffffff;
     position: relative;
     height: 100vh;
+    height: -webkit-fill-available;
     width: 100vw;
     font-size: calc(13.9px + (65 - 10) * ((100vw - 320px) / (1600 - 320)));
     /* iphone 7 tests */
