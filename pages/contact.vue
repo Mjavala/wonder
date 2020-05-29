@@ -8,6 +8,11 @@
 
 <script>
 export default {
+  head () {
+    return {
+      title: 'Contact'
+    }
+  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/contact', {

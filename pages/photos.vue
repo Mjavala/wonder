@@ -34,6 +34,11 @@ export default {
     wonder,
     loader
   },
+  head () {
+    return {
+      title: 'Photos'
+    }
+  },
   data () {
     return {
       posts: [],

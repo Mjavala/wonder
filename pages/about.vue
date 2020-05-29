@@ -13,6 +13,11 @@ export default {
   components: {
     wonder
   },
+  head () {
+    return {
+      title: 'About'
+    }
+  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/about', {

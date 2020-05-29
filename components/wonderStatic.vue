@@ -46,7 +46,7 @@ export default {
     position: absolute;
     top: 0;
     width: 100vw;
-    font-size: calc(13px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
+    font-size: calc(13.5px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
     max-height: 150px;
     max-width: 1154px;
   }

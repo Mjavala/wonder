@@ -143,7 +143,7 @@ export default {
       padding-right: 12.5em;
     }
     #nav-wrapper {
-      width: 40%;
+      width: 42%;
     }
   }
   @media only screen and (min-width: 1154px) {

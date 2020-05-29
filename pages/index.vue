@@ -19,6 +19,11 @@ export default {
     wonderStatic,
     loader
   },
+  head () {
+    return {
+      title: 'Andrew Wonder'
+    }
+  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/home', {
