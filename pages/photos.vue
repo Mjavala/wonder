@@ -54,8 +54,10 @@ export default {
       itemsWeb: [],
       tokenDelta: '',
       token: '',
+      currentToken: 'IGQVJXaE1ueUFZAOEVhWWU1bFIwN3hRS2RNaUVPVjZAQYmluSmc0RU5IWUR4TWRwWGs3NFZAYLVoyUjZABazV1dDhMWmMxM1RWMmFTbjBSdHB4cTBXZAG5YVmVrWDQxMlJBaXFPN3haSWFsU004THVWeHV0egZDZD',
       loaded: false,
-      clicked: false
+      clicked: false,
+      phototrigger: false
     }
   },
   computed: {
@@ -110,7 +112,6 @@ export default {
       }
     },
     tokenDelta (newVal) {
-      console.log(newVal)
       if (newVal >= 864000) { // 10 days - 864000
         this.getNewTokenAndSet()
       }
@@ -155,15 +156,34 @@ export default {
           }
         })
       }
+    },
+    phototrigger () {
+      const images = document.getElementsByClassName('image2')
+      setTimeout(() => {
+        let prevheight
+        for (let i = 0; i < images.length; i++) {
+          const height = images[i].offsetHeight
+          if (i === 0) {
+            prevheight = height
+          }
+          if (prevheight <= height + 50) {
+            const newHeight = `${prevheight}px`
+            images[i].style.height = newHeight
+          }
+        }
+      }, 1000)
     }
   },
   async mounted () {
     this.token = localStorage.getItem('token')
     if (this.token === null) {
-      this.token = 'IGQVJXNlNBaVE4d05SZA2FRTEFwVElMcEIxODZAYVFNHMGNXVG12OGZAmaHAwRm52UFE3Ml8yc1NlNFB2WTlramszeGp1aXdBZAkhLVkNlemdIaGxrNGo5eU5mcnc2T2VhNld6eVRsXzd5dXM5dHo1ZADFleAZDZD'
+      this.token = 'IGQVJXaE1ueUFZAOEVhWWU1bFIwN3hRS2RNaUVPVjZAQYmluSmc0RU5IWUR4TWRwWGs3NFZAYLVoyUjZABazV1dDhMWmMxM1RWMmFTbjBSdHB4cTBXZAG5YVmVrWDQxMlJBaXFPN3haSWFsU004THVWeHV0egZDZD'
+    }
+    if (this.token !== this.currentToken) {
+      this.token = this.currentToken
     }
     try {
-      const response = await axios.get(`https://graph.instagram.com/17841435616161032?fields=media&access_token=${this.token}`)
+      const response = await axios.get(`https://graph.instagram.com/17841400151653229?fields=media&access_token=${this.token}`)
       this.posts = response.data.media.data
     } catch (e) {
       console.log(e)
@@ -370,7 +390,7 @@ export default {
   }
   #hamburgers {
     position: absolute;
-    top: -1.5%;
+    top: -2.5%;
     left: 0;
     padding: 1em;
     cursor: pointer;
