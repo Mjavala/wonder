@@ -131,6 +131,9 @@ export default {
           if (target === null && targetClass === 'image') {
             this.clicked = false
           }
+          if (target === null && targetClass === 'image2') {
+            this.clicked = false
+          }
           if (target === null && targetClass === 'photo-container') {
             this.clicked = false
           }
@@ -150,6 +153,9 @@ export default {
             this.clicked = false
           }
           if (target === null && targetClass === 'image') {
+            this.clicked = false
+          }
+          if (target === null && targetClass === 'image2') {
             this.clicked = false
           }
           if (target === null && targetClass === 'photo-container') {
