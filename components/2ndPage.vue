@@ -38,7 +38,7 @@ export default {
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf") format('truetype'),
     url("~static/fonts/trash-regular.eot#iefix") format('embedded-opentype');
-  font-display: swap;
+  font-display: block;
   }
   @media all and (orientation: portrait) {
     #page-wrap {
