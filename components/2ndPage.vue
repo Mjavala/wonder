@@ -60,6 +60,7 @@ export default {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    margin: 2em auto;
   }
   #inner-wrap {
   width: 100%;

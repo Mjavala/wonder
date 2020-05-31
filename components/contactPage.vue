@@ -2,6 +2,7 @@
   <div v-if="loaded" id="wrapper2">
     <sideNav v-if="clicked" id="side-nav-contact-wrap" />
     <svg
+      v-if="!clicked"
       id="hamburgers"
       xmlns="http://www.w3.org/2000/svg"
       width="36.167"
@@ -92,6 +93,8 @@ export default {
     document.addEventListener('click', (e) => {
       const target = e.target.getAttribute('id')
       const targetClass = e.target.getAttribute('class')
+      console.log(target)
+      console.log(targetClass)
       if (targetClass === 'side-nav-item blackText') {
         setTimeout(() => { this.clicked = false }, 1000)
       }

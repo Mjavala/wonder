@@ -1,6 +1,6 @@
 <template>
   <div id="about-wrap">
-    <Nav  id="navigation-photos" v-if="clicked"/>
+    <Nav v-if="clicked" id="navigation-about" />
     <svg
       id="hamburgers-about"
       xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +18,9 @@
 <script>
 import Nav from '~/components/sideNavContact'
 export default {
+  components: {
+    Nav
+  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/about', {
@@ -34,8 +37,11 @@ export default {
       }
     })
   },
-  components: {
-    Nav
+  data () {
+    return {
+      story: { content: {} },
+      clicked: false
+    }
   },
   watch: {
     clicked (newVal) {
@@ -43,12 +49,11 @@ export default {
         document.addEventListener('click', (e) => {
           const target = e.target.getAttribute('id')
           const targetClass = e.target.getAttribute('class')
-          console.log(target)
-          console.log(targetClass)
+          const t = e.target.nodeName
           if (target === 'text-wrap-inner' && targetClass === null) {
             this.clicked = false
           }
-          if (target === null && targetClass === null) {
+          if (target === null && targetClass === null && t !== 'rect') {
             this.clicked = false
           }
           if (target === 'inner-wrap' && targetClass === null) {
@@ -105,12 +110,6 @@ export default {
           }
         })
       }
-    }
-  },
-  data () {
-    return {
-      story: { content: {} },
-      clicked: false
     }
   },
   mounted () {
