@@ -225,6 +225,9 @@ export default {
     #chris {
       width: 75%
     }
+    #hello-wonder {
+      width: 100%;
+    }
     path{
       z-index: 99;
     }
