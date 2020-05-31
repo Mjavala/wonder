@@ -19,11 +19,6 @@ export default {
     wonderStatic,
     loader
   },
-  head () {
-    return {
-      title: 'Andrew Wonder'
-    }
-  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/home', {
@@ -40,7 +35,6 @@ export default {
       }
     })
   },
-  transition: 'tweakOpacity',
   data () {
     return {
       story: { content: {} },
@@ -75,7 +69,13 @@ export default {
         document.body.style.display = originalBodyStyle
       }, 10)
     })
-  }
+  },
+  head () {
+    return {
+      title: 'Andrew Wonder'
+    }
+  },
+  transition: 'tweakOpacity'
 }
 </script>
 

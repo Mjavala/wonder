@@ -8,11 +8,6 @@
 
 <script>
 export default {
-  head () {
-    return {
-      title: 'Contact'
-    }
-  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/contact', {
@@ -34,7 +29,6 @@ export default {
       story: { content: {} }
     }
   },
-  transition: 'tweakOpacity',
   mounted () {
     // use the bridge to listen to events
     this.$storybridge.on(['input', 'published', 'change'], (event) => {
@@ -57,7 +51,13 @@ export default {
         document.body.style.display = originalBodyStyle
       }, 10)
     })
-  }
+  },
+  head () {
+    return {
+      title: 'Contact'
+    }
+  },
+  transition: 'tweakOpacity'
 }
 </script>
 

@@ -148,7 +148,7 @@ export default {
   }
   @media only screen and (min-width: 1154px) {
     .hamburger {
-      padding-left: 0;
+      padding-left: 1.655em;
     }
     #nav-wrapper {
       padding-right: 0;

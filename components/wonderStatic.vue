@@ -37,9 +37,6 @@ export default {
   }
   #navigation{
     z-index: 10;
-  }
-  #navigation{
-    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -53,6 +50,9 @@ export default {
   .enter{
     animation: 1s enter ease forwards;
   }
+  .noShow {
+    display: none !important;
+  }
   @media only screen and (min-width: 320px) {
     #wonder{
       padding: 0 1.6525em;
@@ -61,6 +61,11 @@ export default {
   @media only screen and (min-width: 780px) {
     #wonder {
       padding: 0 1.6525em;
+    }
+  }
+  @media only screen and (min-width: 1154px) {
+    #navigation {
+      max-width: 2000px;
     }
   }
   @keyframes enter {
