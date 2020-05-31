@@ -112,6 +112,7 @@ export default {
       }
     },
     tokenDelta (newVal) {
+      console.log(newVal)
       if (newVal >= 864000) { // 10 days - 864000
         this.getNewTokenAndSet()
       }
@@ -121,11 +122,16 @@ export default {
         document.addEventListener('click', (e) => {
           const target = e.target.getAttribute('id')
           const targetClass = e.target.getAttribute('class')
+          console.log(target)
+          console.log(targetClass)
           const t = e.target.nodeName
           if (target === null && targetClass === null && t !== 'rect') {
             this.clicked = false
           }
           if (target === null && targetClass === 'image') {
+            this.clicked = false
+          }
+          if (target === null && targetClass === 'photo-container') {
             this.clicked = false
           }
           if (targetClass === 'side-nav-item blackText') {
@@ -144,6 +150,9 @@ export default {
             this.clicked = false
           }
           if (target === null && targetClass === 'image') {
+            this.clicked = false
+          }
+          if (target === null && targetClass === 'photo-container') {
             this.clicked = false
           }
           if (targetClass === 'side-nav-item blackText') {
@@ -317,12 +326,14 @@ export default {
   .image {
     width: 10em;    /* Iphonne 7 fix */
     height: 7.5em;  /* Iphonne 7 fix */
+    border-radius: 0.5%;
   }
   .image2 {
     width: 100%;
     height: 100%;
     margin: 1em;
     margin-bottom: 5em;
+    border-radius: 0.5%;
   }
   #more-id {
     width: 100vw;
@@ -390,7 +401,7 @@ export default {
   }
   #hamburgers {
     position: absolute;
-    top: -2.5%;
+    top: -1.5%;
     left: 0;
     padding: 1em;
     cursor: pointer;
