@@ -131,4 +131,24 @@ export default {
     font-weight: bolder;
     transform: translate(-50%, -50%);
   }
+  @media only screen and (min-width: 320px) and (max-width: 400px) {
+    .video-title {
+      font-size: 1.25em;
+    }
+  }
+  @media only screen and (min-width: 401px) and (max-width: 600px) {
+    .video-title {
+      font-size: 1.5em;
+    }
+  }
+  @media only screen and (min-width: 600px) and (max-width: 800px) {
+    .video-title {
+      font-size: 2em;
+    }
+  }
+  @media only screen and (min-width: 1000px){
+    .video-title {
+      font-size: 3em;
+    }
+  }
 </style>
