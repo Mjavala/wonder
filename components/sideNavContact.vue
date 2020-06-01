@@ -69,7 +69,7 @@ export default {
   font-family: "Trash Regular";
   src: url("~static/fonts/trash-regular.ttf") format('truetype'),
     url("~static/fonts/trash-regular.eot#iefix") format('embedded-opentype');
-  font-display: block;
+  font-display: swap;
   }
   a {
     color: inherit; /* blue colors for links too */
