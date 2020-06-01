@@ -1,9 +1,9 @@
 <template>
   <div v-editable="blok" class="vimeo">
-    <div id="video-anchor">
-      <div id="video-img-wrap">
+    <div class="video-anchor">
+      <div class="video-img-wrap">
         <div class="placeholder" />
-        <div v-if="scrolled" id="video-wrap">
+        <div v-if="scrolled" class="video-wrap">
           <no-ssr>
             <vimeo-player
               ref="player"
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style scoped>
-  #video-img-wrap{
+  .video-img-wrap{
     position: relative;
   }
   .vimeo2{
@@ -96,7 +96,7 @@ export default {
     color: white;
     font-size: 32px;
   }
-  #video-anchor{
+  .video-anchor{
     overflow: auto;
     background-color: #ff0000;
   }
