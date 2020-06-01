@@ -357,13 +357,13 @@ export default {
         height: 70%;
       }
       #tomorrow {
-        width: 30%;
+        width: 9em;
       }
       #chris {
-        width: 50%
+        width: 15em;
       }
       #hello-wonder {
-        width: 70%;
+        width: 20em;
       }
     }
     @media only screen and (min-width: 950px) {
