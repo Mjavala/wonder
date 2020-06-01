@@ -5,11 +5,12 @@ module.exports = {
   */
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    title: 'Andrew Wonder',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'Andrew Wonder portfolio ' },
+      { hid: 'keywords', name: 'keywords', content: 'Andrew, Wonder, Whipped Documentary, Andrew chevy, Andrew Chevrolet' }
     ],
     link: [
       { rel: 'preload', as: 'font', type: 'font/ttf', href: '/fonts/trash-regular.ttf', crossorigin: true }
@@ -39,6 +40,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
     [
       'storyblok-nuxt',
       {
@@ -47,6 +50,13 @@ module.exports = {
       }
     ]
   ],
+  sitemap: {
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date()
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
