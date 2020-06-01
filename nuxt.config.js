@@ -40,8 +40,6 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
     [
       'storyblok-nuxt',
       {
@@ -50,14 +48,6 @@ module.exports = {
       }
     ]
   ],
-  sitemap: {
-    hostname: 'https://agitated-saha-726fde.netlify.app',
-    defaults: {
-      changefreq: 'daily',
-      priority: 1,
-      lastmod: new Date()
-    }
-  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
