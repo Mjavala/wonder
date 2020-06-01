@@ -332,7 +332,7 @@ export default {
         height: 70%;
       }
       #repr, #inquiries {
-        width: 80%
+        width: 70%
       }
       #booking {
         width: 40%
