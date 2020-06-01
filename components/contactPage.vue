@@ -329,13 +329,13 @@ export default {
     }
     @media only screen and (min-width: 500px) {
       #contact-info-wrap {
-        height: 70%;
+        height: 60%;
       }
       #repr, #inquiries {
-        width: 70%
+        width: 60%
       }
       #booking {
-        width: 40%
+        width: 30%
       }
     }
     @media only screen and (min-width: 600px) {
@@ -376,10 +376,10 @@ export default {
         height: 65%;
       }
       #repr, #inquiries {
-        width: 55%
+        width: 50%
       }
       #booking {
-        width: 30%
+        width: 25%
       }
     }
     @media only screen and (min-width: 1300px) {
@@ -392,10 +392,10 @@ export default {
         width: 30%;
       }
       #repr {
-        width: 55%;
+        width: 50%;
       }
       #inquiries {
-        width: 50%;
+        width: 45%;
       }
     }
 </style>
