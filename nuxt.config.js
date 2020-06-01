@@ -51,6 +51,7 @@ module.exports = {
     ]
   ],
   sitemap: {
+    hostname: 'https://agitated-saha-726fde.netlify.app',
     defaults: {
       changefreq: 'daily',
       priority: 1,
