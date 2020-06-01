@@ -4,6 +4,7 @@
       <div class="video-img-wrap">
         <div class="placeholder" />
         <div v-if="scrolled" class="video-wrap">
+          <div v-if="!playing" class="video-title">{{this.title}}</div>
           <no-ssr>
             <vimeo-player
               ref="player"
@@ -12,6 +13,9 @@
               :options="{responsive: true}"
               :controls="control"
               @ready="onReady"
+              @play="onPlay"
+              @pause="onPause"
+              @ended="onEnded"
             />
           </no-ssr>
         </div>
@@ -38,6 +42,7 @@ export default {
     playerReady () {
       this.showVideos()
     }
+
   },
   mounted () {
     window.addEventListener('scroll', () => {
@@ -47,6 +52,15 @@ export default {
   methods: {
     onReady () {
       this.playerReady = true
+    },
+    onPlay () {
+      this.playing = true
+    },
+    onPause () {
+      this.playing = false
+    },
+    onEnded () {
+      this.playing = false
     },
     showVideos () {
       const vimeo2 = document.getElementsByClassName('vimeo2')
@@ -63,6 +77,12 @@ export default {
 </script>
 
 <style scoped>
+  @font-face { /* need eot for IE 11 */
+  font-family: "Trash Regular";
+  src: url("~static/fonts/trash-regular.ttf") format('truetype'),
+    url("~static/fonts/trash-regular.eot#iefix") format('embedded-opentype');
+  font-display: swap;
+  }
   .video-img-wrap{
     position: relative;
   }
@@ -99,5 +119,16 @@ export default {
   .video-anchor{
     overflow: auto;
     background-color: #ff0000;
+  }
+  .video-title{
+    color: white;
+    font-family: "Trash Regular";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1000000;
+    font-size: 2.5em;
+    font-weight: bolder;
+    transform: translate(-50%, -50%);
   }
 </style>
