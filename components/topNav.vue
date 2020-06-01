@@ -9,7 +9,7 @@
       @click="showSideMenu = true"
     ><g transform="translate(-6377.605 -701)"><rect width="36.167" height="5.167" transform="translate(6377.605 701)" fill="#fff" /><rect width="36.167" height="5.167" transform="translate(6377.605 710.877)" fill="#fff" /><rect width="36.167" height="5.167" transform="translate(6377.605 720.755)" fill="#fff" /></g></svg>
     <div id="nav-wrapper">
-      <nuxt-link to="/" class="nav-item">
+      <nuxt-link id="film-top-nav" to="/" class="nav-item">
         Film
       </nuxt-link>
       <nuxt-link to="/photos" class="nav-item">
@@ -59,6 +59,12 @@ export default {
             this.showSideMenu = false
           }, 1000)
         }
+        if (target === 'film-top-nav') {
+          setTimeout(() => {
+            this.scrollToVideos()
+            this.showSideMenu = false
+          }, 1000)
+        }
       })
       // --- Mobile support --- //
       document.addEventListener('touchstart', (e) => {
@@ -71,6 +77,12 @@ export default {
           this.showSideMenu = false
         }
         if (target === 'film') {
+          setTimeout(() => {
+            this.scrollToVideos()
+            this.showSideMenu = false
+          }, 1000)
+        }
+        if (target === 'film-top-nav') {
           setTimeout(() => {
             this.scrollToVideos()
             this.showSideMenu = false
