@@ -8,4 +8,5 @@
 export default {
   props: ['blok']
 }
+// idk
 </script>
