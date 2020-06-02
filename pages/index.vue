@@ -41,6 +41,7 @@ export default {
       fullyLoaded: false
     }
   },
+  // need to fix this shit
   mounted () {
     // use the bridge to listen to events
     this.$storybridge.on(['input', 'published', 'change'], (event) => {
