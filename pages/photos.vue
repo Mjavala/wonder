@@ -122,8 +122,6 @@ export default {
         document.addEventListener('click', (e) => {
           const target = e.target.getAttribute('id')
           const targetClass = e.target.getAttribute('class')
-          console.log(target)
-          console.log(targetClass)
           const t = e.target.nodeName
           if (target === null && targetClass === null && t !== 'rect') {
             this.clicked = false
