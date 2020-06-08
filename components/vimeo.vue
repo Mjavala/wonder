@@ -1,8 +1,8 @@
 <template>
   <div v-editable="blok" class="vimeo">
     <div class="video-anchor">
+      <loader class="loadyload" v-if="!readyPlayerOne" />
       <div class="video-img-wrap">
-        <div class="placeholder" />
         <div v-if="scrolled" class="video-wrap">
           <div v-if="!playing" class="video-title">{{this.title}}</div>
           <no-ssr>
@@ -25,13 +25,19 @@
 </template>
 
 <script>
+import loader from './loader'
+
 export default {
   props: ['blok'],
+  components: {
+    loader
+  },
   data () {
     return {
       video: this.blok.video,
       title: this.blok.title,
       videoID: this.blok.video,
+      readyPlayerOne: false,
       control: true,
       playing: false,
       scrolled: false,
@@ -41,17 +47,19 @@ export default {
   watch: {
     playerReady () {
       this.showVideos()
+      this.playing = false
     }
-
   },
   mounted () {
     window.addEventListener('scroll', () => {
       this.scrolled = true
     })
+    this.playing = true
   },
   methods: {
     onReady () {
       this.playerReady = true
+      this.readyPlayerOne = true
     },
     onPlay () {
       this.playing = true
@@ -103,10 +111,6 @@ export default {
   .noShow-placeholder{
     display: none;
   }
-  .placeholder {
-    width: 100vw;
-    height: 25vh;
-  }
   .title{
     position: absolute;
     top: 50%;
@@ -118,7 +122,7 @@ export default {
   }
   .video-anchor{
     overflow: auto;
-    background-color: #ff0000;
+    background-color: black;
   }
   .video-title{
     color: white;
@@ -130,6 +134,9 @@ export default {
     font-size: 2.5em;
     font-weight: bolder;
     transform: translate(-50%, -50%);
+  }
+  .loadyload, .video-img-wrap {
+    overflow: hidden;
   }
   @media only screen and (min-width: 320px) and (max-width: 400px) {
     .video-title {

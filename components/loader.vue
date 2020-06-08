@@ -39,6 +39,7 @@ export default {
   stroke-linecap: round;
   stroke-width: 2.5;
   fill: none;
+  z-index: 9999999;
 }
 .fade-out-click{
     margin: 0 10% 10% 0;

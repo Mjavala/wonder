@@ -58,11 +58,8 @@ export default {
       }
     })
     setTimeout(() => {
-      window.scroll(-1, 1)
-    }, 250)
-    setTimeout(() => {
       this.fullyLoaded = true
-    }, 500)
+    }, 250)
     window.addEventListener('orientationchange', function () {
       const originalBodyStyle = getComputedStyle(document.body).getPropertyValue('display')
       document.body.style.display = 'none'
