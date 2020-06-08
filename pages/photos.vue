@@ -112,8 +112,7 @@ export default {
       }
     },
     tokenDelta (newVal) {
-      console.log(newVal)
-      if (newVal >= 864000) { // 10 days - 864000
+      if (newVal >= 1506455757) { // 10 days - 864000
         this.getNewTokenAndSet()
       }
     },
@@ -122,8 +121,6 @@ export default {
         document.addEventListener('click', (e) => {
           const target = e.target.getAttribute('id')
           const targetClass = e.target.getAttribute('class')
-          console.log(target)
-          console.log(targetClass)
           const t = e.target.nodeName
           if (target === null && targetClass === null && t !== 'rect') {
             this.clicked = false
@@ -192,10 +189,10 @@ export default {
   async mounted () {
     this.token = localStorage.getItem('token')
     if (this.token === null) {
-      this.token = 'IGQVJXaE1ueUFZAOEVhWWU1bFIwN3hRS2RNaUVPVjZAQYmluSmc0RU5IWUR4TWRwWGs3NFZAYLVoyUjZABazV1dDhMWmMxM1RWMmFTbjBSdHB4cTBXZAG5YVmVrWDQxMlJBaXFPN3haSWFsU004THVWeHV0egZDZD'
+      this.token = this.currentToken
     }
     if (this.token !== this.currentToken) {
-      this.token = this.currentToken
+      this.currentToken = this.token
     }
     try {
       const response = await axios.get(`https://graph.instagram.com/17841400151653229?fields=media&access_token=${this.token}`)
@@ -261,7 +258,6 @@ export default {
       const date = localStorage.getItem('date')
       if (date === null) {
         this.localStore()
-        return
       }
       this.checkTokenDate()
     },
