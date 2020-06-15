@@ -112,7 +112,7 @@ export default {
       }
     },
     tokenDelta (newVal) {
-      if (newVal >= 1506455757) { // 10 days - 864000
+      if (newVal >= 1506455757) { // 17 days - 864000
         this.getNewTokenAndSet()
       }
     },
@@ -192,7 +192,8 @@ export default {
       this.token = this.currentToken
     }
     if (this.token !== this.currentToken) {
-      this.currentToken = this.token
+      this.token = this.currentToken
+      this.localStore()
     }
     try {
       const response = await axios.get(`https://graph.instagram.com/17841400151653229?fields=media&access_token=${this.token}`)
