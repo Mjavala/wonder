@@ -60,7 +60,7 @@ export default {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    margin: 2em auto;
+    margin: 2.5em auto;
   }
   #inner-wrap {
   width: 100%;
@@ -173,7 +173,7 @@ export default {
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
-      margin: 2em auto;
+      margin: 2.5em auto;
     }
     #inner-wrap {
     width: 100%;

@@ -1,128 +1,94 @@
 <template>
-  <div v-editable="blok" class="vimeo">
-    <div class="video-anchor">
-      <loader class="loadyload" v-if="!readyPlayerOne" />
-      <div class="video-img-wrap">
-        <div v-if="scrolled" class="video-wrap">
-          <div v-if="!playing" class="video-title">{{this.title}}</div>
-          <no-ssr>
-            <vimeo-player
-              ref="player"
-              class="vimeo2"
-              :video-id="videoID"
-              :options="{responsive: true}"
-              :controls="control"
-              @ready="onReady"
-              @play="onPlay"
-              @pause="onPause"
-              @ended="onEnded"
-            />
-          </no-ssr>
-        </div>
+  <div class="video-anchor">
+    <div v-editable="blok" class="vimeo" />
+    <div v-if="done">
+      <div class="video-title" @click="playvid">
+        {{ this.title }}
       </div>
+      <div
+        v-video-player:myVideoPlayer="playerOptions[0]"
+        class="vids"
+        :playsinline="playsinline"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import loader from './loader'
+import 'video.js/dist/video-js.css'
 
 export default {
   props: ['blok'],
-  components: {
-    loader
-  },
   data () {
     return {
-      video: this.blok.video,
       title: this.blok.title,
-      videoID: this.blok.video,
-      readyPlayerOne: false,
-      control: true,
-      playing: false,
-      scrolled: false,
-      playerReady: false
+      video: this.blok.video,
+      poster: this.blok.poster,
+      loaded: false,
+      count: 0,
+      clickedTitle: false,
+      playsinline: true,
+      playerOptions: [],
+      done: false
     }
   },
-  watch: {
-    playerReady () {
-      this.showVideos()
-      this.playing = false
+  computed: {
+    player () {
+      return this.myVideoPlayer
     }
   },
   mounted () {
-    window.addEventListener('scroll', () => {
-      this.scrolled = true
+    document.addEventListener('scroll', () => {
+      this.done = true
     })
-    this.playing = true
+    const video = String(this.video)
+    const image = String(this.poster)
+    const playerOption = {
+      fluid: true,
+      fullscreen: {
+        options: { navigationUI: 'show' }
+      },
+      language: 'en',
+      sources: [{
+        src: video,
+        type: 'video/mp4'
+      }],
+      poster: image
+    }
+    this.playerOptions.push(playerOption)
   },
   methods: {
-    onReady () {
-      this.playerReady = true
-      this.readyPlayerOne = true
-    },
-    onPlay () {
-      this.playing = true
-    },
-    onPause () {
-      this.playing = false
-    },
-    onEnded () {
-      this.playing = false
-    },
-    showVideos () {
-      const vimeo2 = document.getElementsByClassName('vimeo2')
-      const placeholders = document.getElementsByClassName('placeholder')
-      for (let i = 0; i < vimeo2.length; i++) {
-        vimeo2[i].classList.add('show')
-      }
-      for (let i = 0; i < placeholders.length; i++) {
-        placeholders[i].classList.add('noShow-placeholder')
-      }
+    playvid (e) {
+      this.myVideoPlayer.play()
+      e.target.classList.add('noShow')
+      this.clickedTitle = true
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
   @font-face { /* need eot for IE 11 */
   font-family: "Trash Regular";
-  src: url("~static/fonts/trash-regular.ttf") format('truetype'),
-    url("~static/fonts/trash-regular.eot#iefix") format('embedded-opentype');
+  src: url("~static/fonts/trash-regular.ttf") format('truetype');
   font-display: swap;
   }
-  .video-img-wrap{
-    position: relative;
-  }
-  .vimeo2{
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  #video-wrap{
-    position: relative;
-  }
-  .show {
-    position: unset;
-  }
-  .noShow-placeholder{
-    display: none;
-  }
-  .title{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 100;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 32px;
-  }
   .video-anchor{
+    position: relative;
     overflow: auto;
     background-color: black;
+  }
+  .vjs-big-play-button{
+    display: none !important;
+  }
+  .vjs-poster {
+    z-index: 10000;
+  }
+  .ll{
+    display: block;
+  }
+  .noShow{
+    opacity: 0;
   }
   .video-title{
     color: white;
@@ -134,9 +100,7 @@ export default {
     font-size: 2.5em;
     font-weight: bolder;
     transform: translate(-50%, -50%);
-  }
-  .loadyload, .video-img-wrap {
-    overflow: hidden;
+    cursor: pointer;
   }
   @media only screen and (min-width: 320px) and (max-width: 400px) {
     .video-title {

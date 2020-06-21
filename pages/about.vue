@@ -148,6 +148,7 @@ export default {
   #hamburgers-about {
     padding: 1em;
     cursor: pointer;
+    padding-bottom: 0;
   }
   .tweakOpacity-enter-active, .tweakOpacity-leave-active {
     transition: opacity .45s ease-in-out;

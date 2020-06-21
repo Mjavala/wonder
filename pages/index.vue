@@ -67,6 +67,65 @@ export default {
         document.body.style.display = originalBodyStyle
       }, 10)
     })
+    document.addEventListener('scroll', () => {
+      const videos = document.getElementsByClassName('vjs-poster')
+      const titles = document.getElementsByClassName('video-title')
+      for (let i = 0; i < videos.length; i++) {
+        videos[i].addEventListener('click', () => {
+          titles[i].classList.add('noShow')
+        })
+      }
+      this.touchSupport()
+    })
+  },
+  methods: {
+    touchSupport () {
+      /* eslint no-var: "warn" */
+      this.touchstartX = 0
+      this.touchstartY = 0
+      this.touchendX = 0
+      this.touchendY = 0
+      const pageWidth = window.innerWidth || document.body.clientWidth
+      const threshold = Math.max(1, Math.floor(0.01 * (pageWidth)))
+
+      const videos = document.getElementsByClassName('vjs-poster')
+      const titles = document.getElementsByClassName('video-title')
+
+      for (let i = 0; i < videos.length; i++) {
+        videos[i].addEventListener('touchstart', function (event) {
+          this.touchstartX = event.changedTouches[0].screenX
+          this.touchstartY = event.changedTouches[0].screenY
+        }, false)
+        videos[i].addEventListener('touchend', function (event) {
+          this.touchendX = event.changedTouches[0].screenX
+          this.touchendY = event.changedTouches[0].screenY
+          const x = this.touchendX - this.touchstartX
+          const y = this.touchendY - this.touchstartY
+          const xy = Math.abs(x / y)
+          const yx = Math.abs(y / x)
+          const limit = Math.tan(45 * 1.5 / 180 * Math.PI)
+
+          if (Math.abs(x) > threshold || Math.abs(y) > threshold) {
+            if (yx <= limit) {
+              if (x < 0) {
+                console.log('swipe left')
+              } else {
+                console.log('swipe right')
+              }
+            }
+            if (xy <= limit) {
+              if (y < 0) {
+                console.log('swipe up')
+              } else {
+                console.log('swipe down')
+              }
+            }
+          } else {
+            titles[i].classList.add('noShow')
+          }
+        }, false)
+      }
+    }
   },
   head () {
     return {

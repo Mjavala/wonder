@@ -57,7 +57,7 @@ export default {
       })
     },
     scrollToVideos () {
-      const elmntToView = document.getElementsByClassName('video-wrap')[0]
+      const elmntToView = document.getElementsByClassName('video-anchor')[0]
       elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
   }

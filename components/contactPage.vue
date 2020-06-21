@@ -126,18 +126,10 @@ export default {
       }
     })
     this.loaded = true
-    /* --- does not work - when any touch move is made, everything lights up black
-    document.addEventListener('touchstart', (event) => {
-      const paths = event.target.querySelectorAll('path')
-      paths.forEach((path) => {
-        path.classList.add('blackText')
-      })
-    })
-    */
   },
   methods: {
     scrollToVideos () {
-      const elmntToView = document.getElementById('video-wrap')
+      const elmntToView = document.getElementsByClassName('video-anchor')[0]
       elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
     },
     black (event) {

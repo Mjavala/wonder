@@ -25,7 +25,7 @@ module.exports = {
 
   plugins: [
     '~/plugins/components.js',
-    '~/plugins/vimeo-player.js'
+    '~/plugins/video.js'
   ],
   /*
   ** Nuxt.js dev-modules
