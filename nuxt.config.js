@@ -25,7 +25,8 @@ module.exports = {
 
   plugins: [
     '~/plugins/components.js',
-    '~/plugins/video.js'
+    '~/plugins/video.js',
+    { src: '~/plugins/lightbox.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
