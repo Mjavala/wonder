@@ -1,11 +1,11 @@
 <template>
-  <div id="wrapper">
+  <div id="wrappers">
     <naV
       id="navigation"
       class="noShow"
     />
     <div>
-      <div v-show="this.animLoaded" id="main" role="main" />
+      <div v-show="this.animLoaded" id="main" />
     </div>
   </div>
 </template>
@@ -62,14 +62,13 @@ export default {
 </script>
 
 <style>
-  #wrapper{
+  #wrappers{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FF0000;
     position: relative;
     height: 100vh;
-    height: -webkit-fill-available;
   }
   #navigation{
     z-index: 10;

@@ -164,8 +164,8 @@ export default {
 
 <style scoped>
   #wrapper2{
-      height: 100vh;
       height: -webkit-fill-available;
+      height: 100vh;
       position: relative;
       display: flex;
       justify-content: center;
