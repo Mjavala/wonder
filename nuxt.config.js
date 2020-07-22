@@ -14,6 +14,9 @@ module.exports = {
     ],
     link: [
       { rel: 'preload', as: 'font', type: 'font/ttf', href: '/fonts/trash-regular.ttf', crossorigin: true }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /*
