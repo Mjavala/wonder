@@ -5,7 +5,7 @@
       class="noShow"
     />
     <div>
-      <div v-show="this.animLoaded" id="main" />
+      <div v-show="this.animLoaded" id="main" role="main"/>
     </div>
   </div>
 </template>
@@ -69,6 +69,9 @@ export default {
     background-color: #FF0000;
     position: relative;
     height: 100vh;
+  }
+  #main {
+    width: 100vw;
   }
   #navigation{
     z-index: 10;
