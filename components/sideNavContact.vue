@@ -12,12 +12,12 @@
         </nuxt-link>
       </div>
       <div class="side-nav-item-wrap">
-        <nuxt-link to="/about" class="side-nav-item" @click.native="whiteNavStyling">
+        <nuxt-link :to="{path: '/', hash:'#page-wrap'}" class="side-nav-item" @click.native="whiteNavStyling">
           About
         </nuxt-link>
       </div>
       <div class="side-nav-item-wrap">
-        <nuxt-link to="/contact" class="side-nav-item" @click.native="whiteNavStyling">
+        <nuxt-link :to="{path: '/', hash:'#innerWrap'}" class="side-nav-item" @click.native="whiteNavStyling">
           Contact
         </nuxt-link>
       </div>

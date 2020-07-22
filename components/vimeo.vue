@@ -102,6 +102,9 @@ export default {
     transform: translate(-50%, -50%);
     cursor: pointer;
   }
+  .video-title:hover {
+    color: #FF0000;
+  }
   @media only screen and (min-width: 320px) and (max-width: 400px) {
     .video-title {
       font-size: 1.25em;

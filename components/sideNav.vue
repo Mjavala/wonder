@@ -12,14 +12,14 @@
         </div>
       </nuxt-link>
       <div class="side-nav-item-wrap">
-        <nuxt-link to="/about" class="side-nav-item" @click.native="blackNavStyling">
+        <div id="side-nav-about" class="side-nav-item" @click="blackNavStyling">
           About
-        </nuxt-link>
+        </div>
       </div>
       <div class="side-nav-item-wrap">
-        <nuxt-link to="/contact" class="side-nav-item" @click.native="blackNavStyling">
+        <div id="side-nav-contact" class="side-nav-item" @click="blackNavStyling">
           Contact
-        </nuxt-link>
+        </div>
       </div>
     </div>
   </div>

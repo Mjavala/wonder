@@ -1,15 +1,17 @@
 <template>
   <div v-if="loaded" id="wrapper2">
     <sideNav v-if="clicked" id="side-nav-contact-wrap" />
+    <!--
     <svg
       v-if="!clicked"
-      id="hamburgers"
+      id="hamburgersContact"
       xmlns="http://www.w3.org/2000/svg"
       width="36.167"
       height="24.922"
       viewBox="0 0 36.167 24.922"
       @click="clicked = true"
     ><g transform="translate(-4037.605 -701)"><rect width="36.167" height="5.167" transform="translate(4037.605 701)" fill="red" /><rect width="36.167" height="5.167" transform="translate(4037.605 710.877)" fill="red" /><rect width="36.167" height="5.167" transform="translate(4037.605 720.755)" fill="red" /></g></svg>
+    -->
     <div id="innerWrap">
       <svg
         v-if="!clicked"
@@ -79,9 +81,6 @@
 
 <script>
 export default {
-  components: {
-    sideNav: () => import('~/components/sideNavContact')
-  },
   props: ['blok'],
   data () {
     return {
@@ -126,6 +125,9 @@ export default {
       }
     })
     this.loaded = true
+    document.addEventListener('mouseover', (e) => {
+      this.black(e)
+    })
   },
   methods: {
     scrollToVideos () {
@@ -133,6 +135,9 @@ export default {
       elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
     },
     black (event) {
+      const tomorrow = document.getElementById('tomorrow')
+      const chrisChris = document.getElementById('chris')
+      const helloHelloWonder = document.getElementById('hello-wonder')
       if (event.target.id === 'hello-wonder') {
         const helloWonder = document.getElementById('hello-wonder')
         const paths = helloWonder.querySelectorAll('path')
@@ -157,12 +162,39 @@ export default {
           window.location.form = 'https://www.tomorrow.tv/'
         }, 1000)
       }
+      if (event.target.id !== 'tomorrow') {
+        const paths = tomorrow.querySelectorAll('path')
+        paths.forEach((path) => {
+          const result = path.classList.contains('blackText')
+          if (result) {
+            path.classList.remove('blackText')
+          }
+        })
+      }
+      if (event.target.id !== 'chris') {
+        const paths = chrisChris.querySelectorAll('path')
+        paths.forEach((path) => {
+          const result = path.classList.contains('blackText')
+          if (result) {
+            path.classList.remove('blackText')
+          }
+        })
+      }
+      if (event.target.id !== 'hello-wonder') {
+        const paths = helloHelloWonder.querySelectorAll('path')
+        paths.forEach((path) => {
+          const result = path.classList.contains('blackText')
+          if (result) {
+            path.classList.remove('blackText')
+          }
+        })
+      }
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
   #wrapper2{
       height: -webkit-fill-available;
       height: 100vh;
@@ -258,7 +290,7 @@ export default {
         width: 2%;
         top: 15em;  /* iphone 7 fix */
     }
-    #hamburgers {
+    #hamburgersContact {
         position: absolute;
         top: 0;
         left: 0;
@@ -279,6 +311,9 @@ export default {
     .contact-link-wrap {
       display: flex;
       justify-content: center;
+    }
+    .contact-link-wrap svg {
+      fill: black !important;
     }
     #repr, #inquiries {
       width: 100%

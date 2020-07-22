@@ -15,12 +15,12 @@
       <nuxt-link to="/photos" class="nav-item">
         Photo
       </nuxt-link>
-      <nuxt-link to="/about" class="nav-item" @click="underlineCurrentPage">
+      <div id="about-top-nav" class="nav-item">
         About
-      </nuxt-link>
-      <nuxt-link to="/contact" class="nav-item">
+      </div>
+      <div id="contact-top-nav" class="nav-item">
         Contact
-      </nuxt-link>
+      </div>
     </div>
     <sideNav v-if="showSideMenu" id="side-nav-wrap" />
   </nav>
@@ -40,9 +40,7 @@ export default {
     this.sideNavDrawer()
   },
   methods: {
-    underlineCurrentPage (event) {
-      event.target.classList.add('whiteUnderLine')
-    },
+    // Hooks for side nav && top nav scroll, both web and mobile support
     sideNavDrawer () {
       document.addEventListener('click', (e) => {
         const target = e.target.getAttribute('id')
@@ -53,15 +51,44 @@ export default {
         if (target === 'side-nav-wrap') {
           this.showSideMenu = false
         }
+        // side nav ids
         if (target === 'film') {
           setTimeout(() => {
             this.scrollToVideos()
             this.showSideMenu = false
           }, 1000)
         }
+        if (target === 'side-nav-about') {
+          setTimeout(() => {
+            this.scrollToAbout()
+            this.showSideMenu = false
+          }, 1000)
+        }
+        if (target === 'side-nav-contact') {
+          // scroll is needed to trigger video API calls so that the page doesn't jump back up afterwards
+          window.scroll(-1, 1)
+          setTimeout(() => {
+            this.scrollToContact()
+            this.showSideMenu = false
+          }, 1000)
+        }
+        // top nav ids
         if (target === 'film-top-nav') {
           setTimeout(() => {
             this.scrollToVideos()
+            this.showSideMenu = false
+          }, 1000)
+        }
+        if (target === 'about-top-nav') {
+          setTimeout(() => {
+            this.scrollToAbout()
+            this.showSideMenu = false
+          }, 1000)
+        }
+        if (target === 'contact-top-nav') {
+          window.scroll(-1, 1)
+          setTimeout(() => {
+            this.scrollToContact()
             this.showSideMenu = false
           }, 1000)
         }
@@ -82,9 +109,36 @@ export default {
             this.showSideMenu = false
           }, 1000)
         }
+        if (target === 'side-nav-about') {
+          setTimeout(() => {
+            this.scrollToAbout()
+            this.showSideMenu = false
+          }, 1000)
+        }
+        if (target === 'side-nav-contact') {
+          // scroll is needed to trigger video API calls so that the page doesn't jump back up afterwards
+          window.scroll(-1, 1)
+          setTimeout(() => {
+            this.scrollToContact()
+            this.showSideMenu = false
+          }, 1000)
+        }
         if (target === 'film-top-nav') {
           setTimeout(() => {
             this.scrollToVideos()
+            this.showSideMenu = false
+          }, 1000)
+        }
+        if (target === 'about-top-nav') {
+          setTimeout(() => {
+            this.scrollToAbout()
+            this.showSideMenu = false
+          }, 1000)
+        }
+        if (target === 'contact-top-nav') {
+          window.scroll(-1, 1)
+          setTimeout(() => {
+            this.scrollToContact()
             this.showSideMenu = false
           }, 1000)
         }
@@ -93,6 +147,14 @@ export default {
     scrollToVideos () {
       const elmntToView = document.getElementsByClassName('video-anchor')[0]
       elmntToView.scrollIntoView({ block: 'start', behavior: 'smooth' })
+    },
+    scrollToAbout () {
+      const aboutAnchor = document.getElementById('page-wrap')
+      aboutAnchor.scrollIntoView({ block: 'start', behavior: 'smooth' })
+    },
+    scrollToContact () {
+      const contactAnchor = document.getElementById('innerWrap')
+      contactAnchor.scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
   }
 }
