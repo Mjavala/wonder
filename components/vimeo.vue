@@ -1,7 +1,8 @@
 <template>
   <div class="video-anchor">
     <div v-editable="blok" class="vimeo" />
-    <div v-if="done">
+    <div v-if="done" @mouseover="hover=true" @mouseenter="hover=false">
+      <div v-if="hover" id="red-border"></div>
       <div class="video-title" @click="playvid">
         {{ this.title }}
       </div>
@@ -29,7 +30,8 @@ export default {
       clickedTitle: false,
       playsinline: true,
       playerOptions: [],
-      done: false
+      done: false,
+      hover: false
     }
   },
   computed: {
@@ -38,6 +40,9 @@ export default {
     }
   },
   mounted () {
+    document.addEventListener('scroll', () => {
+      this.done = true
+    })
     document.addEventListener('scroll', () => {
       this.done = true
     })
@@ -104,6 +109,11 @@ export default {
   }
   .video-title:hover {
     color: #FF0000;
+  }
+  .red-border {
+    width: 100%;
+    height: 100%;
+    background: red;
   }
   @media only screen and (min-width: 320px) and (max-width: 400px) {
     .video-title {
