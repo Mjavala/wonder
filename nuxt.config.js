@@ -13,9 +13,7 @@ module.exports = {
       { hid: 'keywords', name: 'keywords', content: 'Andrew, Wonder, Whipped Documentary, Andrew chevy, Andrew Chevrolet' }
     ],
     link: [
-      { rel: 'preload', as: 'font', type: 'font/ttf', href: '/fonts/trash-regular.ttf', crossorigin: true }
-    ],
-    link: [
+      { rel: 'preload', as: 'font', type: 'font/ttf', href: '/fonts/trash-regular.ttf', crossorigin: true },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },

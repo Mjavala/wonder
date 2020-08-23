@@ -1,9 +1,16 @@
 <template>
-  <div class="video-anchor">
+  <div class="video-anchor" @mouseenter="addBorderBox" @mouseleave="delBorderBox">
+    <video
+      v-if="currentVideo"
+      class="gif"
+      src="../assets/test.mp4"
+      loop
+      autoplay
+      muted
+    />
     <div v-editable="blok" class="vimeo" />
-    <div v-if="done" @mouseover="hover=true" @mouseenter="hover=false">
-      <div v-if="hover" id="red-border"></div>
-      <div class="video-title" @click="playvid">
+    <div v-if="done">
+      <div v-show="showTitle" class="video-title" @click="playvid">
         {{ this.title }}
       </div>
       <div
@@ -31,7 +38,9 @@ export default {
       playsinline: true,
       playerOptions: [],
       done: false,
-      hover: false
+      hover: false,
+      currentVideo: false,
+      showTitle: true
     }
   },
   computed: {
@@ -67,6 +76,16 @@ export default {
       this.myVideoPlayer.play()
       e.target.classList.add('noShow')
       this.clickedTitle = true
+    },
+    addBorderBox (data) {
+      data.target.classList.add('borderbox')
+      this.currentVideo = true
+      this.showTitle = false
+    },
+    delBorderBox (data) {
+      data.target.classList.remove('borderbox')
+      this.currentVideo = false
+      this.showTitle = true
     }
   }
 }
@@ -80,8 +99,11 @@ export default {
   }
   .video-anchor{
     position: relative;
-    overflow: auto;
+    overflow: hidden;
     background-color: black;
+  }
+  .borderbox {
+    border: 4px solid red;
   }
   .vjs-big-play-button{
     display: none !important;
@@ -94,6 +116,14 @@ export default {
   }
   .noShow{
     opacity: 0;
+  }
+  .gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000000;
+    width: 100%;
+    height: auto;
   }
   .video-title{
     color: white;

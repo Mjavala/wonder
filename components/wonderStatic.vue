@@ -5,7 +5,7 @@
       class="noShow"
     />
     <div>
-      <div v-show="this.animLoaded" id="main" role="main"/>
+      <div v-show="this.animLoaded" id="main" role="main" />
     </div>
   </div>
 </template>
