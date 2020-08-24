@@ -1,7 +1,7 @@
 <template>
   <div class="video-anchor" @mouseenter="addBorderBox" @mouseleave="delBorderBox">
     <video
-      v-if="currentVideo"
+      v-show="currentVideo"
       class="gif"
       src="../assets/test.mp4"
       loop
@@ -52,9 +52,6 @@ export default {
     document.addEventListener('scroll', () => {
       this.done = true
     })
-    document.addEventListener('scroll', () => {
-      this.done = true
-    })
     const video = String(this.video)
     const image = String(this.poster)
     const playerOption = {
@@ -70,6 +67,13 @@ export default {
       poster: image
     }
     this.playerOptions.push(playerOption)
+    const gifs = document.getElementsByClassName('gif')
+    // const titles = document.getElementsByClassName('video-title')
+    for (let i = 0; i < gifs.length; i++) {
+      gifs[i].addEventListener('click', () => {
+        this.currentVideo = false
+      })
+    }
   },
   methods: {
     playvid (e) {
