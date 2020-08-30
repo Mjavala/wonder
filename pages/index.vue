@@ -90,6 +90,8 @@ export default {
 
       const videos = document.getElementsByClassName('vjs-poster')
       const titles = document.getElementsByClassName('video-title')
+      const anchor = document.getElementsByClassName('video-anchor')
+      const plays = document.getElementsByClassName('play')
 
       for (let i = 0; i < videos.length; i++) {
         videos[i].addEventListener('touchstart', function (event) {
@@ -121,7 +123,9 @@ export default {
               }
             }
           } else {
+            anchor[i].classList.add('red-border')
             titles[i].classList.add('noShow')
+            plays[i].classList.add('noShow')
           }
         }, false)
       }
@@ -142,6 +146,9 @@ export default {
   }
   .tweakOpacity-enter, .tweakOpacity-leave-active {
     opacity: 0;
+  }
+  .red-border {
+    border: 2px solid red;
   }
   @media all and (-ms-high-contrast:none)
   {
