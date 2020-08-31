@@ -27,7 +27,6 @@ module.exports = {
   plugins: [
     '~/plugins/components.js',
     '~/plugins/video.js',
-    '~/plugins/vue-gtag',
     { src: '~/plugins/lightbox.js', ssr: false }
   ],
   /*
@@ -35,7 +34,10 @@ module.exports = {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-118890441-3 '
+    }]
   ],
   /*
   ** Nuxt.js modules
