@@ -27,6 +27,7 @@ module.exports = {
   plugins: [
     '~/plugins/components.js',
     '~/plugins/video.js',
+    '~/plugins/vue-gtag',
     { src: '~/plugins/lightbox.js', ssr: false }
   ],
   /*
