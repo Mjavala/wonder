@@ -53,8 +53,6 @@ export default {
       anim.addEventListener('DOMloaded', this.triggerPlay(anim))
     },
     triggerPlay (anim) {
-      console.log('ready anim triggered')
-      console.log(this.animLoaded)
       anim.play()
     }
   }

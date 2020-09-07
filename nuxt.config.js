@@ -36,7 +36,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     ['@nuxtjs/google-analytics', {
-      id: 'UA-118890441-3 '
+      id: 'UA-118890441-3 ', debug: { sendHitTask: true }
     }]
   ],
   /*
