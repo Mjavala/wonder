@@ -101,6 +101,15 @@ export default {
   },
   methods: {
     playvid (e) {
+      const title = document.getElementsByClassName('video-title')
+      const play = document.getElementsByClassName('play')
+      for (const i in title) {
+        if (title[i] === e.target || play[i] === e.target) {
+          console.log('adding noshow to both!')
+          title[i].classList.add('noShow')
+          play[i].classList.add('noShow')
+        }
+      }
       this.myVideoPlayer.play()
       e.target.classList.add('noShow')
       this.clickedTitle = true
