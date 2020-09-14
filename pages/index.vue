@@ -19,6 +19,18 @@ export default {
     wonderStatic,
     loader
   },
+  watch: {
+    clickGifTrigger (target) {
+      const gifs = document.getElementsByClassName('gif')
+      const titles = document.getElementsByClassName('video-title')
+      for (let i = 0; i < gifs.length; i++) {
+        if (target !== gifs[i]) {
+          gifs[i].classList.remove('noShow')
+          titles[i].classList.remove('noShow')
+        }
+      }
+    }
+  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/home', {
@@ -38,7 +50,8 @@ export default {
   data () {
     return {
       story: { content: {} },
-      fullyLoaded: false
+      fullyLoaded: false,
+      clickGifTrigger: null
     }
   },
   // need to fix this shit
@@ -70,9 +83,19 @@ export default {
     document.addEventListener('scroll', () => {
       const videos = document.getElementsByClassName('vjs-poster')
       const titles = document.getElementsByClassName('video-title')
+      const gifs = document.getElementsByClassName('gif')
       for (let i = 0; i < videos.length; i++) {
         videos[i].addEventListener('click', () => {
           titles[i].classList.add('noShow')
+        })
+      }
+      for (let i = 0; i < gifs.length; i++) {
+        gifs[i].addEventListener('click', (event) => {
+          if (event.target === gifs[i]) {
+            event.target.classList.add('noShow')
+            titles[i].classList.add('noShow')
+            this.clickGifTrigger = event.target
+          }
         })
       }
       this.touchSupport()
@@ -90,7 +113,6 @@ export default {
 
       const videos = document.getElementsByClassName('vjs-poster')
       const titles = document.getElementsByClassName('video-title')
-      const anchor = document.getElementsByClassName('video-anchor')
       const plays = document.getElementsByClassName('play')
 
       for (let i = 0; i < videos.length; i++) {
@@ -123,7 +145,6 @@ export default {
               }
             }
           } else {
-            anchor[i].classList.add('red-border')
             titles[i].classList.add('noShow')
             plays[i].classList.add('noShow')
           }
@@ -147,11 +168,10 @@ export default {
   .tweakOpacity-enter, .tweakOpacity-leave-active {
     opacity: 0;
   }
-  .red-border {
-    border: 2px solid red;
-  }
-  .video-js .vjs-control-bar {
-    display: flex !important;
+  @media only screen and (min-width: 600px) {
+    .video-js .vjs-control-bar {
+      display: flex !important;
+    }
   }
   @media all and (-ms-high-contrast:none)
   {
