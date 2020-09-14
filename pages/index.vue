@@ -150,6 +150,9 @@ export default {
   .red-border {
     border: 2px solid red;
   }
+  .video-js .vjs-control-bar {
+    display: flex !important;
+  }
   @media all and (-ms-high-contrast:none)
   {
     *::-ms-backdrop, #home-wrap {

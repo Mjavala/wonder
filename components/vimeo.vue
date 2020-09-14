@@ -4,9 +4,8 @@
       v-show="currentVideo"
       class="gif"
       src="../assets/test.mp4"
-      loop
-      autoplay
       muted
+      :poster="String(this.poster)"
     />
     <div v-editable="blok" class="vimeo" />
     <div v-if="done">
@@ -44,8 +43,8 @@ export default {
       playerOptions: [],
       done: false,
       hover: false,
-      currentVideo: false,
-      showTitle: true,
+      currentVideo: true,
+      showTitle: false,
       mobile: false,
       videos: [],
       mediaVideos: []
@@ -71,6 +70,7 @@ export default {
           for (let i = 0; i < gifs.length; i++) {
             gifs[i].addEventListener('click', () => {
               this.currentVideo = false
+              this.showTitle = false
             })
           }
           this.desktopCount++
@@ -78,18 +78,14 @@ export default {
       }
     })
     const video = String(this.video)
-    const image = String(this.poster)
+    // const image = String(this.poster)
     const playerOption = {
       fluid: true,
-      fullscreen: {
-        options: { navigationUI: 'show' }
-      },
       language: 'en',
       sources: [{
         src: video,
         type: 'video/mp4'
-      }],
-      poster: image
+      }]
     }
     this.playerOptions.push(playerOption)
     // const titles = document.getElementsByClassName('video-title')
@@ -115,14 +111,23 @@ export default {
       this.clickedTitle = true
     },
     addBorderBox (data) {
-      data.target.classList.add('borderbox')
-      this.currentVideo = true
-      this.showTitle = false
+      this.showTitle = true
+      const gifs = document.getElementsByClassName('gif')
+      for (let i = 0; i < gifs.length; i++) {
+        gifs[i].addEventListener('mouseover', () => {
+          gifs[i].play()
+        })
+      }
     },
     delBorderBox (data) {
-      data.target.classList.remove('borderbox')
-      this.currentVideo = false
-      this.showTitle = true
+      this.currentVideo = true
+      this.showTitle = false
+      const gifs = document.getElementsByClassName('gif')
+      for (let i = 0; i < gifs.length; i++) {
+        gifs[i].addEventListener('mouseleave', () => {
+          gifs[i].load()
+        })
+      }
     },
     mobileTitles () {
       const title = document.getElementsByClassName('video-title')
@@ -207,6 +212,7 @@ export default {
     z-index: 1000000;
     width: 100%;
     height: auto;
+    object-fit: cover;
   }
   .video-title, .play{
     color: white;

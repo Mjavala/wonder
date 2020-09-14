@@ -9,3 +9,9 @@ export default {
   props: ['blok']
 }
 </script>
+
+<style scoped>
+  .vjs-default-skin.vjs-paused .vjs-control-bar {
+    display: flex !important;
+  }
+</style>
