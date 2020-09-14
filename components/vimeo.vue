@@ -72,14 +72,21 @@ export default {
       if (this.mobile === false) {
         if (this.desktopCount === 0) {
           const gifs = document.getElementsByClassName('gif')
+          const titles = document.getElementsByClassName('video-titles')
           for (let i = 0; i < gifs.length; i++) {
             gifs[i].addEventListener('mouseover', () => {
               this.showTitle = true
               gifs[i].play()
             })
           }
-          for (let i = 0; i < gifs.length; i++) {
-            gifs[i].addEventListener('mouseleave', () => {
+          for (let i = 0; i < titles.length; i++) {
+            titles[i].addEventListener('mouseover', () => {
+              this.showTitle = true
+              gifs[i].play()
+            })
+          }
+          for (let i = 0; i < titles.length; i++) {
+            titles[i].addEventListener('mouseleave', () => {
               this.showTitle = false
               gifs[i].load()
             })

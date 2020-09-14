@@ -97,6 +97,13 @@ export default {
             this.clickGifTrigger = event.target
           }
         })
+        titles[i].addEventListener('click', (event) => {
+          if (event.target === titles[i]) {
+            event.target.classList.add('noShow')
+            gifs[i].classList.add('noShow')
+            this.clickGifTrigger = event.target
+          }
+        })
       }
       this.touchSupport()
     })
