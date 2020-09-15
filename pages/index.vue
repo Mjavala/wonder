@@ -201,7 +201,7 @@ export default {
     transition: opacity .45s ease-in-out;
   }
   .red {
-    color: red;
+    color: red !important;
   }
   .tweakOpacity-enter, .tweakOpacity-leave-active {
     opacity: 0;
