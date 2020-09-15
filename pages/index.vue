@@ -51,7 +51,8 @@ export default {
     return {
       story: { content: {} },
       fullyLoaded: false,
-      clickGifTrigger: null
+      clickGifTrigger: null,
+      count: 0
     }
   },
   // need to fix this shit
@@ -84,28 +85,48 @@ export default {
       const videos = document.getElementsByClassName('vjs-poster')
       const titles = document.getElementsByClassName('video-title')
       const gifs = document.getElementsByClassName('gif')
-      for (let i = 0; i < videos.length; i++) {
-        videos[i].addEventListener('click', () => {
+      //  const anchors = document.getElementsByClassName('video-anchor')
+      if (this.count === 0) {
+        for (let i = 0; i < titles.length; i++) {
           titles[i].classList.add('noShow')
-        })
-      }
-      for (let i = 0; i < gifs.length; i++) {
-        gifs[i].addEventListener('click', (event) => {
-          if (event.target === gifs[i]) {
-            event.target.classList.add('noShow')
+        }
+        for (let i = 0; i < videos.length; i++) {
+          videos[i].addEventListener('click', () => {
             titles[i].classList.add('noShow')
-            this.clickGifTrigger = event.target
-          }
-        })
-        titles[i].addEventListener('click', (event) => {
-          if (event.target === titles[i]) {
-            event.target.classList.add('noShow')
-            gifs[i].classList.add('noShow')
-            this.clickGifTrigger = event.target
-          }
-        })
+          })
+        }
+        for (let i = 0; i < gifs.length; i++) {
+          gifs[i].addEventListener('mouseover', () => {
+            titles[i].classList.remove('noShow')
+            gifs[i].play()
+          })
+          gifs[i].addEventListener('mouseleave', (e) => {
+            const targetClass = e.relatedTarget.getAttribute('class')
+            if (targetClass !== 'video-title') {
+              gifs[i].load()
+              titles[i].classList.add('noShow')
+            }
+          })
+        }
+        for (let i = 0; i < gifs.length; i++) {
+          gifs[i].addEventListener('click', (event) => {
+            if (event.target === gifs[i]) {
+              event.target.classList.add('noShow')
+              titles[i].classList.add('noShow')
+              this.clickGifTrigger = event.target
+            }
+          })
+          titles[i].addEventListener('click', (event) => {
+            if (event.target === titles[i]) {
+              event.target.classList.add('noShow')
+              gifs[i].classList.add('noShow')
+              this.clickGifTrigger = event.target
+            }
+          })
+        }
+        this.touchSupport()
+        this.count++
       }
-      this.touchSupport()
     })
   },
   methods: {

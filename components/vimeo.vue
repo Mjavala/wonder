@@ -44,10 +44,11 @@ export default {
       playerOptions: [],
       done: false,
       hover: false,
-      showTitle: false,
+      showTitle: true,
       mobile: false,
       videos: [],
-      mediaVideos: []
+      mediaVideos: [],
+      hoveringTitle: null
     }
   },
   computed: {
@@ -69,6 +70,7 @@ export default {
           this.count++
         }
       }
+      /*
       if (this.mobile === false) {
         if (this.desktopCount === 0) {
           const gifs = document.getElementsByClassName('gif')
@@ -78,22 +80,26 @@ export default {
               this.showTitle = true
               gifs[i].play()
             })
-          }
-          for (let i = 0; i < titles.length; i++) {
-            titles[i].addEventListener('mouseover', () => {
-              this.showTitle = true
-              gifs[i].play()
-            })
-          }
-          for (let i = 0; i < titles.length; i++) {
-            titles[i].addEventListener('mouseleave', () => {
+            gifs[i].addEventListener('mouseleave', () => {
               this.showTitle = false
-              gifs[i].load()
+              if (this.hoveringTitle === true) {
+                console.log('beboop')
+              } if (this.hoveringTitle === false) {
+                this.showTitle = false
+                gifs[i].load()
+              }
+            })
+            titles[i].addEventListener('mouseover', () => {
+              this.hoveringTitle = true
+            })
+            titles[i].addEventListener('mouseleave', () => {
+              this.hoveringTitle = false
             })
           }
           this.desktopCount++
         }
       }
+      */
     })
     const video = String(this.video)
     // const image = String(this.poster)
@@ -248,6 +254,7 @@ export default {
   }
   .play {
     opacity: 0;
+    z-index: 10000;
   }
   .fade-in {
   animation: fadeIn ease-in 5s forwards;
