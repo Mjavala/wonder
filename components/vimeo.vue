@@ -1,5 +1,5 @@
 <template>
-  <div class="video-anchor" @mouseenter="addBorderBox($event)" @mouseleave="delBorderBox">
+  <div class="video-anchor">
     <video
     v-if="!mobile"
       class="gif"
@@ -10,10 +10,10 @@
     />
     <div v-editable="blok" class="vimeo" />
     <div v-if="done">
-      <div v-show="showTitle" class="video-title" @click="playvid">
+      <div v-show="showTitle" class="video-title">
         {{ this.title }}
       </div>
-      <div v-show="showTitle" class="play" @click="playvid">
+      <div v-show="showTitle" class="play">
         Play
       </div>
       <div
@@ -131,26 +131,6 @@ export default {
     /* eslint no-useless-escape: "warn" */
   },
   methods: {
-    playvid (e) {
-      const title = document.getElementsByClassName('video-title')
-      const play = document.getElementsByClassName('play')
-      for (const i in title) {
-        if (title[i] === e.target || play[i] === e.target) {
-          console.log('adding noshow to both!')
-          title[i].classList.add('noShow')
-          play[i].classList.add('noShow')
-        }
-      }
-      this.myVideoPlayer.play()
-      e.target.classList.add('noShow')
-      this.clickedTitle = true
-    },
-    addBorderBox (data) {
-      //  this.showTitle = true
-    },
-    delBorderBox (data) {
-      //  this.showTitle = false
-    },
     mobileTitles () {
       const title = document.getElementsByClassName('video-title')
       const play = document.getElementsByClassName('play')
@@ -213,9 +193,6 @@ export default {
   .vids {
     z-index: 1000;
   }
-  .borderbox {
-    border: 4px solid red;
-  }
   .vjs-big-play-button{
     display: none !important;
   }
@@ -248,9 +225,6 @@ export default {
     font-weight: bolder;
     transform: translate(-50%, -50%);
     cursor: pointer;
-  }
-  .video-title:hover {
-    color: #FF0000;
   }
   .play {
     opacity: 0;

@@ -29,6 +29,16 @@ export default {
           titles[i].classList.remove('noShow')
         }
       }
+    },
+    clickTitleTrigger (target) {
+      const gifs = document.getElementsByClassName('gif')
+      const titles = document.getElementsByClassName('video-title')
+      for (let i = 0; i < gifs.length; i++) {
+        if (target !== titles[i]) {
+          gifs[i].classList.remove('noShow')
+          titles[i].classList.remove('noShow')
+        }
+      }
     }
   },
   asyncData (context) {
@@ -52,6 +62,7 @@ export default {
       story: { content: {} },
       fullyLoaded: false,
       clickGifTrigger: null,
+      clickTitleTrigger: null,
       count: 0
     }
   },
@@ -82,29 +93,21 @@ export default {
       }, 10)
     })
     document.addEventListener('scroll', () => {
-      const videos = document.getElementsByClassName('vjs-poster')
       const titles = document.getElementsByClassName('video-title')
       const gifs = document.getElementsByClassName('gif')
       //  const anchors = document.getElementsByClassName('video-anchor')
       if (this.count === 0) {
-        for (let i = 0; i < titles.length; i++) {
-          titles[i].classList.add('noShow')
-        }
-        for (let i = 0; i < videos.length; i++) {
-          videos[i].addEventListener('click', () => {
-            titles[i].classList.add('noShow')
-          })
-        }
         for (let i = 0; i < gifs.length; i++) {
           gifs[i].addEventListener('mouseover', () => {
             titles[i].classList.remove('noShow')
+            titles[i].classList.add('red')
             gifs[i].play()
           })
           gifs[i].addEventListener('mouseleave', (e) => {
             const targetClass = e.relatedTarget.getAttribute('class')
             if (targetClass !== 'video-title') {
               gifs[i].load()
-              titles[i].classList.add('noShow')
+              titles[i].classList.remove('red')
             }
           })
         }
@@ -115,12 +118,16 @@ export default {
               titles[i].classList.add('noShow')
               this.clickGifTrigger = event.target
             }
+            if (event.target !== gifs[i]) {
+              gifs[i].classList.remove('noShow')
+              titles[i].classList.remove('noShow')
+            }
           })
           titles[i].addEventListener('click', (event) => {
             if (event.target === titles[i]) {
               event.target.classList.add('noShow')
               gifs[i].classList.add('noShow')
-              this.clickGifTrigger = event.target
+              this.clickTitleTrigger = event.target
             }
           })
         }
@@ -192,6 +199,9 @@ export default {
 <style>
   .tweakOpacity-enter-active, .tweakOpacity-leave-active {
     transition: opacity .45s ease-in-out;
+  }
+  .red {
+    color: red;
   }
   .tweakOpacity-enter, .tweakOpacity-leave-active {
     opacity: 0;
