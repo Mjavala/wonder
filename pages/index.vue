@@ -19,6 +19,20 @@ export default {
     wonderStatic,
     loader
   },
+  watch: {
+    videoTarget (newVal) {
+      const videos = document.getElementsByClassName('vjs-poster')
+      const videoList = document.getElementsByTagName('video')
+      const titles = document.getElementsByClassName('video-title')
+
+      for (let i = 0; i < videos.length; i++) {
+        if (newVal !== videos[i]) {
+          videoList[i].load()
+          titles[i].classList.remove('noShow')
+        }
+      }
+    }
+  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/home', {
@@ -38,7 +52,9 @@ export default {
   data () {
     return {
       story: { content: {} },
-      fullyLoaded: false
+      fullyLoaded: false,
+      count: 0,
+      videoTarget: null
     }
   },
   // need to fix this shit
@@ -70,12 +86,24 @@ export default {
     document.addEventListener('scroll', () => {
       const videos = document.getElementsByClassName('vjs-poster')
       const titles = document.getElementsByClassName('video-title')
-      for (let i = 0; i < videos.length; i++) {
-        videos[i].addEventListener('click', () => {
-          titles[i].classList.add('noShow')
-        })
+      if (this.count === 0) {
+        for (let i = 0; i < videos.length; i++) {
+          videos[i].addEventListener('click', (e) => {
+            titles[i].classList.add('noShow')
+            this.videoTarget = e.target
+          })
+          videos[i].addEventListener('mouseenter', () => {
+            titles[i].classList.add('red')
+          })
+          videos[i].addEventListener('mouseleave', () => {
+            titles[i].classList.remove('red')
+          })
+        }
+        this.count++
       }
-      this.touchSupport()
+      this.$nextTick(() => {
+        this.touchSupport()
+      })
     })
   },
   methods: {
@@ -90,6 +118,7 @@ export default {
 
       const videos = document.getElementsByClassName('vjs-poster')
       const titles = document.getElementsByClassName('video-title')
+      const videoList = document.getElementsByTagName('video')
 
       for (let i = 0; i < videos.length; i++) {
         videos[i].addEventListener('touchstart', function (event) {
@@ -122,6 +151,12 @@ export default {
             }
           } else {
             titles[i].classList.add('noShow')
+            for (let i = 0; i < videos.length; i++) {
+              if (event.target !== videos[i]) {
+                videoList[i].load()
+                titles[i].classList.remove('noShow')
+              }
+            }
           }
         }, false)
       }
@@ -139,6 +174,9 @@ export default {
 <style>
   .tweakOpacity-enter-active, .tweakOpacity-leave-active {
     transition: opacity .45s ease-in-out;
+  }
+  .red {
+    color: red;
   }
   .tweakOpacity-enter, .tweakOpacity-leave-active {
     opacity: 0;

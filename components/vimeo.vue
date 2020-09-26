@@ -59,6 +59,16 @@ export default {
   },
   methods: {
     playvid (e) {
+      // const videos = document.getElementsByClassName('vjs-poster')
+      const videoList = document.getElementsByTagName('video')
+      const titles = document.getElementsByClassName('video-title')
+
+      for (let i = 0; i < titles.length; i++) {
+        if (event.target !== titles[i]) {
+          videoList[i].load()
+          titles[i].classList.remove('noShow')
+        }
+      }
       this.myVideoPlayer.play()
       e.target.classList.add('noShow')
       this.clickedTitle = true
