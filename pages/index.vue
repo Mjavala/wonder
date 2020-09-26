@@ -85,6 +85,7 @@ export default {
     })
     document.addEventListener('scroll', () => {
       const videos = document.getElementsByClassName('vjs-poster')
+      const anchor = document.getElementsByClassName('video-anchor')
       const titles = document.getElementsByClassName('video-title')
       if (this.count === 0) {
         for (let i = 0; i < videos.length; i++) {
@@ -92,10 +93,10 @@ export default {
             titles[i].classList.add('noShow')
             this.videoTarget = e.target
           })
-          videos[i].addEventListener('mouseenter', () => {
+          anchor[i].addEventListener('mouseenter', () => {
             titles[i].classList.add('red')
           })
-          videos[i].addEventListener('mouseleave', () => {
+          anchor[i].addEventListener('mouseleave', () => {
             titles[i].classList.remove('red')
           })
         }
