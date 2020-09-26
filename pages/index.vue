@@ -93,13 +93,11 @@ export default {
             titles[i].classList.add('noShow')
             this.videoTarget = e.target
           })
-          this.$nextTick(() => {
-            anchor[i].addEventListener('mouseover', () => {
-              titles[i].classList.add('red')
-            })
-            anchor[i].addEventListener('mouseout', () => {
-              titles[i].classList.remove('red')
-            })
+          anchor[i].addEventListener('mouseover', () => {
+            titles[i].classList.add('red')
+          })
+          anchor[i].addEventListener('mouseout', () => {
+            titles[i].classList.remove('red')
           })
         }
         this.count++
@@ -179,7 +177,7 @@ export default {
     transition: opacity .45s ease-in-out;
   }
   .red {
-    color: red;
+    color: red !important;
   }
   .tweakOpacity-enter, .tweakOpacity-leave-active {
     opacity: 0;
