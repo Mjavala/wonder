@@ -60,7 +60,7 @@ export default {
       itemsWeb: [],
       tokenDelta: '',
       token: '',
-      currentToken: 'IGQVJXaE1ueUFZAOEVhWWU1bFIwN3hRS2RNaUVPVjZAQYmluSmc0RU5IWUR4TWRwWGs3NFZAYLVoyUjZABazV1dDhMWmMxM1RWMmFTbjBSdHB4cTBXZAG5YVmVrWDQxMlJBaXFPN3haSWFsU004THVWeHV0egZDZD',
+      currentToken: 'IGQVJYd1BhS0F3R0p4T0t3bmMtNlRRTjdxRlBIOFRnVkJkdXBqNEloQTFydXJZAVDRDdUk5QkRsOHY1SEE2OVI5amg2TVVUaXFsY0NnLUtKeS1xbGhwZADFZAaFpnXzQxUVk1b0VyUEh6MEcxYndZAQU1XQgZDZD',
       loaded: false,
       clicked: false,
       phototrigger: false
