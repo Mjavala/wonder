@@ -93,10 +93,10 @@ export default {
             titles[i].classList.add('noShow')
             this.videoTarget = e.target
           })
-          anchor[i].addEventListener('mouseenter', () => {
+          anchor[i].addEventListener('mouseover', () => {
             titles[i].classList.add('red')
           })
-          anchor[i].addEventListener('mouseleave', () => {
+          anchor[i].addEventListener('mouseout', () => {
             titles[i].classList.remove('red')
           })
         }
